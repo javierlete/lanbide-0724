@@ -25,15 +25,19 @@
             <h2>HTML</h2>
 
             <section id="parrafos">
+                <h3>Párrafos</h3>
+
                 <pre>public class HolaMundo {
     public static void main(String[] args) {
         System.out.println("Hola");
     }
 }</pre>
-                <hr>
-                
-                <p>Lorem <strong>ipsum</strong> <em>dolor</em> sit amet consectetur adipisicing elit. Dolor excepturi debitis dolorum voluptatum
-                    dolores accusantium sunt error similique? <span class="importantisimo">Quaerat fugit</span> aliquam eius porro quo nemo amet fuga,
+                <hr />
+
+                <p>Lorem <strong>ipsum</strong> <em>dolor</em> sit amet consectetur adipisicing elit. Dolor excepturi
+                    debitis dolorum voluptatum
+                    dolores accusantium sunt error similique? <span class="importantisimo">Quaerat fugit</span> aliquam
+                    eius porro quo nemo amet fuga,
                     corporis commodi unde!</p>
 
                 <blockquote>
@@ -42,7 +46,7 @@
                 </blockquote>
             </section>
             <section id="listas">
-                <h2>Listas</h2>
+                <h3>Listas</h3>
 
                 <ul>
                     <li>Número 1</li>
@@ -63,16 +67,122 @@
                     <dd>Cascade Style Sheets</dd>
                 </dl>
             </section>
+            <section id="multimedia">
+                <h3>Multimedia</h3>
+
+                <figure>
+                    <img src="imgs/HTML5.svg" alt="Logo HTML5" />
+                    <figcaption>HTML5</figcaption>
+                </figure>
+
+                <audio src="audios/badumtss.mp3" controls></audio>
+
+                <video src="videos/Big_Buck_Bunny_360_10s_1MB.mp4" controls></video>
+
+                <iframe src="https://formacion.ipartek.com" width="400" height="300"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766599!2d-2.9157806847907275!3d43.25640788601609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1648546521209!5m2!1ses!2ses"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUbj5dNZ89An?utm_source=generator"
+                    width="100%" height="380" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SVGjOUnQZ58"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </section>
+            <section id="tablas">
+                <h3>Tablas</h3>
+
+                <table border="1">
+                    <caption>Usuarios</caption>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th colspan="2">Datos personales</th>
+                        </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- tr*4>(th>{$})(td>{Nombre $})(td>{Apellido $}) -->
+                        <tr>
+                            <th>1</th>
+                            <td>Nombre 1</td>
+                            <td>Apellido 1</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Nombre 2</td>
+                            <td>Apellido 2</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Nombre 3</td>
+                            <td>Apellido 3</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Nombre 4</td>
+                            <td>Apellido 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            <section id="formularios">
+                <h3>Formularios</h3>
+                
+                <form action="https://www.google.es/search">
+                    <fieldset>
+                        <legend>Búsqueda en Google</legend>
+                        <input type="search" name="q" placeholder="Pon el texto a buscar en Google">
+                        <button>Buscar en Google</button>
+                    </fieldset>
+                </form>
+
+                <form action="">
+                    <fieldset>
+                        <legend>Login</legend>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div>
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password">
+                        </div>
+                        <div>
+                            <button>Login</button>
+                        </div>
+                    </fieldset>
+                </form>
+                
+            </section>
         </article>
     </main>
     <aside>
         <!-- nav>ul>li*4>a[href="#"]{Vínculo $} -->
         <nav>
             <ul>
-                <li><a href="#">Vínculo 1</a></li>
-                <li><a href="#">Vínculo 2</a></li>
-                <li><a href="#">Vínculo 3</a></li>
-                <li><a href="#">Vínculo 4</a></li>
+                <li><a href="#">Anuncio 1</a></li>
+                <li><a href="#">Anuncio 2</a></li>
+                <li><a href="#">Anuncio 3</a></li>
+                <li><a href="#">Anuncio 4</a></li>
             </ul>
         </nav>
     </aside>
