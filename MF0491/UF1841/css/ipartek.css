@@ -1,0 +1,145 @@
+/* :root {
+    --color-vinculo: darkcyan;
+    --padding: 0.5rem;
+    --color-fondo: black;
+    --color-tinta: white;
+    --color-fondo-titulo: white;
+    --color-tinta-titulo: black;
+    --color-fondo-secundario: darkgray;
+} */
+
+/* Globales */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-vinculo: darkcyan;
+    --padding: 0.5rem;
+    --color-fondo: white;
+    --color-tinta: black;
+    --color-fondo-titulo: black;
+    --color-tinta-titulo: white;
+    --color-fondo-secundario: darkgray;
+
+    --blockquote-size: 1.25rem;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-tinta);
+    background-color: var(--color-fondo);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-vinculo);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+main, pre, h1, h2, h3, p, blockquote, ul, ol, dl, figure, iframe, video, audio {
+    padding: var(--padding);
+}
+
+audio, video, iframe {
+    width: 100%;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+blockquote {
+    background-color: var(--color-fondo-secundario);
+    border-radius: var(--padding);
+    font-style: italic;
+    font-size: var(--blockquote-size);
+    line-height: calc(var(--blockquote-size) + var(--padding));
+}
+
+blockquote::before, blockquote::after {
+    content: "''";
+}
+
+/* TODO Aspecto en iFrames */
+
+/* Cabecera */
+
+header {
+    background-color: var(--color-fondo-titulo);
+    color: var(--color-tinta-titulo);
+    padding: var(--padding);
+    text-align: center;
+}
+
+/* Menú */
+
+body > nav {
+    background-color: var(--color-fondo-secundario);
+    text-align: center;
+}
+
+body > nav a {
+    display: inline-block;
+    color: var(--color-tinta-titulo);
+    padding: var(--padding);
+}
+
+body > nav a:hover {
+    background-color: var(--color-fondo-titulo);
+    text-decoration: none;
+    width: 100%;   
+}
+
+/* Main */
+
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-fondo-secundario);
+    
+    border-radius: var(--padding);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+main ul li {
+    list-style: disc;
+    list-style-position: inside;
+}
+main ol li {
+    list-style: decimal;
+    list-style-position: inside;
+}
+main dt {
+    font-weight: bold;
+}
+
+main dd::before {
+    content: '- ';
+}
+
+main dd {
+    padding: var(--padding);
+}
+
+/* Multimedia */
+
+#multimedia figcaption {
+    color: var(--color-fondo-secundario);
+}
