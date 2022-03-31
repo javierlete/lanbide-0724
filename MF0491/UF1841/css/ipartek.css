@@ -53,12 +53,29 @@ h3 {
     font-size: 2rem;
 }
 
-main, pre, h1, h2, h3, p, blockquote, ul, ol, dl, figure, iframe, video, audio {
+main,
+pre,
+h1,
+h2,
+h3,
+p,
+blockquote,
+ul,
+ol,
+dl,
+figure,
+form {
     padding: var(--padding);
 }
 
-audio, video, iframe {
+figure,
+audio,
+video,
+.proporcion {
     width: 100%;
+    border-radius: var(--padding);
+    border: 1px solid var(--color-fondo-secundario);
+    margin-bottom: calc(var(--padding)*2);
 }
 
 p {
@@ -73,15 +90,43 @@ blockquote {
     line-height: calc(var(--blockquote-size) + var(--padding));
 }
 
-blockquote::before, blockquote::after {
+blockquote::before,
+blockquote::after {
     content: "''";
 }
 
-/* TODO Aspecto en iFrames */
+/* Aspecto en iFrames */
+.proporcion {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.proporcion.r16x9 {
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+.proporcion.r4x3 {
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+}
+.proporcion.r1x1 {
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.proporcion > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
 
 /* Cabecera */
 
-header {
+header, footer {
     background-color: var(--color-fondo-titulo);
     color: var(--color-tinta-titulo);
     padding: var(--padding);
@@ -90,21 +135,21 @@ header {
 
 /* Menú */
 
-body > nav {
+body>nav {
     background-color: var(--color-fondo-secundario);
     text-align: center;
 }
 
-body > nav a {
+body>nav a {
     display: inline-block;
     color: var(--color-tinta-titulo);
     padding: var(--padding);
 }
 
-body > nav a:hover {
+body>nav a:hover {
     background-color: var(--color-fondo-titulo);
     text-decoration: none;
-    width: 100%;   
+    width: 100%;
 }
 
 /* Main */
@@ -112,7 +157,7 @@ body > nav a:hover {
 pre {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--color-fondo-secundario);
-    
+
     border-radius: var(--padding);
     overflow-x: auto;
     overflow-y: hidden;
@@ -122,10 +167,12 @@ main ul li {
     list-style: disc;
     list-style-position: inside;
 }
+
 main ol li {
     list-style: decimal;
     list-style-position: inside;
 }
+
 main dt {
     font-weight: bold;
 }
@@ -142,4 +189,82 @@ main dd {
 
 #multimedia figcaption {
     color: var(--color-fondo-secundario);
+}
+
+/* Tablas */
+table {
+    width: 100%;
+
+    border: 1px solid #dfdfdf;
+}
+
+caption {
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+thead, tfoot {
+    background-color: var(--color-fondo-titulo);
+    color: var(--color-tinta-titulo);
+}
+
+th {
+    font-weight: bold;
+}
+
+thead th:nth-of-type(2), thead th:nth-of-type(3),
+tfoot th:nth-of-type(2), tfoot th:nth-of-type(3) {
+    text-align: left;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: var(--color-fondo-secundario);
+}
+
+td, th {
+    padding: var(--padding);
+    border: 1px solid #dfdfdf;
+}
+
+/* Formularios */
+legend {
+    font-variant: small-caps;
+    font-weight: bold;
+    margin-bottom: var(--padding);
+}
+
+label {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: var(--padding);
+}
+
+input[type=radio] {
+    width: auto;
+}
+/* Seleccionamos todas las label que están inmediatamente después de un input type="radio" */
+input[type=radio] + label {
+    width: auto;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    margin-bottom: var(--padding);
+    border: 1px solid var(--color-fondo-secundario);
+    background-color: var(--color-fondo);
+    padding: var(--padding);
+    border-radius: var(--padding);
+}
+
+button, input[type=submit], input[type=reset] {
+    background-color: var(--color-vinculo);
+}
+/* Aside */
+aside {
+    background-color: var(--color-fondo-secundario);
+}
+aside li {
+    padding: var(--padding);
+    text-align: center;
 }

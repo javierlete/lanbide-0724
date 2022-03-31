@@ -81,21 +81,26 @@
 
                 <video src="videos/Big_Buck_Bunny_360_10s_1MB.mp4" controls></video>
 
-                <iframe src="https://formacion.ipartek.com" width="400" height="300"></iframe>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766599!2d-2.9157806847907275!3d43.25640788601609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1648546521209!5m2!1ses!2ses"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUbj5dNZ89An?utm_source=generator"
-                    width="100" height="380" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/SVGjOUnQZ58"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <div class="proporcion r16x9">
+                    <iframe src="https://formacion.ipartek.com" width="400" height="300"></iframe>
+                </div>
+                <div class="proporcion r1x1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766599!2d-2.9157806847907275!3d43.25640788601609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1648546521209!5m2!1ses!2ses"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="proporcion r16x9">
+                    <iframe
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUbj5dNZ89An?utm_source=generator"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+                <div class="proporcion r4x3">
+                    <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58" title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
             </section>
             <section id="tablas">
                 <h3>Tablas</h3>
@@ -147,7 +152,7 @@
             </section>
             <section id="formularios">
                 <h3>Formularios</h3>
-                
+
                 <form action="https://www.google.es/search">
                     <fieldset>
                         <legend>Búsqueda en Google</legend>
@@ -171,10 +176,11 @@
                     </fieldset>
                     <fieldset>
                         <legend>Datos personales</legend>
-                        
+
                         <div>
                             <label for="nombre">Nombre</label>
-                            <input type="text" required minlength="2" id="nombre" placeholder="El nombre con el que te llaman tus amigos">
+                            <input type="text" required minlength="2" id="nombre"
+                                placeholder="El nombre con el que te llaman tus amigos">
                         </div>
                         <div>
                             <label for="edad">Edad</label>
@@ -184,7 +190,7 @@
                             <label for="nacimiento">Fecha de nacimiento</label>
                             <input type="date" id="nacimiento">
                         </div>
-                        
+
                         <div>
                             <label for="hora">Hora de nacimiento</label>
                             <input type="time" id="hora">
@@ -226,22 +232,22 @@
                                 <option value="4">Hobby 4</option>
                             </select>
                         </div>
-                        
+
                     </fieldset>
                     <fieldset>
                         <legend>Nivel de inglés</legend>
-                        <label for="basico">Básico</label>
                         <input type="radio" id="basico" name="nivel">
-                        <label for="medio">Medio</label>
+                        <label for="basico">Básico</label>
                         <input type="radio" id="medio" name="nivel">
-                        <label for="avanzado">Avanzado</label>
+                        <label for="medio">Medio</label>
                         <input type="radio" id="avanzado" name="nivel">
+                        <label for="avanzado">Avanzado</label>
                     </fieldset>
                     <fieldset>
                         <legend>Aceptar</legend>
 
                         <div>
-                            <label for="comentarios">comentarios</label>
+                            <label for="comentarios">Comentarios</label>
                             <textarea id="comentarios" cols="30" rows="10"></textarea>
                         </div>
                         <div>
@@ -255,7 +261,7 @@
                         </div>
                     </fieldset>
                 </form>
-                
+
             </section>
         </article>
     </main>
