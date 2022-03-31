@@ -106,15 +106,19 @@ blockquote::after {
     padding-top: 56.25%;
     /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
+
 .proporcion.r4x3 {
-    padding-top: 75%; /* 4:3 Aspect Ratio */
+    padding-top: 75%;
+    /* 4:3 Aspect Ratio */
 }
+
 .proporcion.r1x1 {
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    padding-top: 100%;
+    /* 1:1 Aspect Ratio */
 }
 
 /* Then style the iframe to fit in the container div with full height and width */
-.proporcion > iframe {
+.proporcion>iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -126,7 +130,8 @@ blockquote::after {
 
 /* Cabecera */
 
-header, footer {
+header,
+footer {
     background-color: var(--color-fondo-titulo);
     color: var(--color-tinta-titulo);
     padding: var(--padding);
@@ -203,7 +208,8 @@ caption {
     font-weight: bold;
 }
 
-thead, tfoot {
+thead,
+tfoot {
     background-color: var(--color-fondo-titulo);
     color: var(--color-tinta-titulo);
 }
@@ -212,8 +218,10 @@ th {
     font-weight: bold;
 }
 
-thead th:nth-of-type(2), thead th:nth-of-type(3),
-tfoot th:nth-of-type(2), tfoot th:nth-of-type(3) {
+thead th:nth-of-type(2),
+thead th:nth-of-type(3),
+tfoot th:nth-of-type(2),
+tfoot th:nth-of-type(3) {
     text-align: left;
 }
 
@@ -221,7 +229,8 @@ tbody tr:nth-of-type(even) {
     background-color: var(--color-fondo-secundario);
 }
 
-td, th {
+td,
+th {
     padding: var(--padding);
     border: 1px solid #dfdfdf;
 }
@@ -235,7 +244,7 @@ legend {
 
 label {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: baseline;
     width: 100%;
     margin-bottom: var(--padding);
 }
@@ -243,12 +252,16 @@ label {
 input[type=radio] {
     width: auto;
 }
+
 /* Seleccionamos todas las label que están inmediatamente después de un input type="radio" */
-input[type=radio] + label {
+input[type=radio]+label {
     width: auto;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
     width: 100%;
     margin-bottom: var(--padding);
     border: 1px solid var(--color-fondo-secundario);
@@ -257,14 +270,184 @@ input, select, textarea, button {
     border-radius: var(--padding);
 }
 
-button, input[type=submit], input[type=reset] {
+button,
+input[type=submit],
+input[type=reset] {
     background-color: var(--color-vinculo);
 }
+
 /* Aside */
 aside {
     background-color: var(--color-fondo-secundario);
 }
+
 aside li {
     padding: var(--padding);
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    body {
+        background-color: red;
+    }
+
+    body > nav li {
+        display: inline-block;
+    }
+
+    #listas ul, #listas ol, #listas dl {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #multimedia > *:not(h3) {
+        float: left;
+        width: 50%;
+    }
+
+    .proporcion.r16x9 {
+        padding-top: calc(56.25% / 2);
+        /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
+    
+    .proporcion.r4x3 {
+        padding-top: calc(75% / 2);
+        /* 4:3 Aspect Ratio */
+    }
+    
+    .proporcion.r1x1 {
+        padding-top: calc(100% / 2);
+        /* 1:1 Aspect Ratio */
+    }
+
+    #formularios div {
+        display: flex;
+    }
+
+    label {
+        flex-basis: 15rem;
+    }
+
+    input {
+        flex-grow: 1;
+    }
+
+    aside ul {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-color: cyan;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    fieldset {
+        flex-basis: 50%;
+        padding: var(--padding);
+    }
+
+    fieldset:nth-of-type(1) {
+        order: 1;
+    }
+    fieldset:nth-of-type(2) {
+        order: 3;
+    }
+    fieldset:nth-of-type(3) {
+        order: 2;
+    }
+    fieldset:nth-of-type(4) {
+        order: 4;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        background-color: lightgoldenrodyellow;
+    }
+    #parrafos {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #parrafos > * {
+        width: 50%;
+    }
+
+    #parrafos h3 {
+        flex-basis: 100%;
+    }
+
+    #parrafos hr {
+        display: none;
+    }
+}
+
+@media (min-width: 2560px) {
+    body {
+        background-color: lightblue;
+    } 
+
+    body > header {
+        grid-area: cabecera;
+    }
+    
+    body > nav {
+        grid-area: menu;
+    }
+    
+    body > main {
+        grid-area: principal;
+    }
+    
+    body > aside {
+        grid-area: anuncios;
+    }
+    
+    body > footer {
+        grid-area: pie;
+    }
+    
+    body {
+        display: grid;
+        grid-template-columns: 1fr 10rem;
+        grid-template-areas: 
+            "cabecera cabecera"
+            "menu menu"
+            "principal anuncios"
+            "pie pie";
+    }
+
+    #parrafos {
+        grid-area: parrafos;
+    }
+
+    #listas {
+        grid-area: listas;
+    }
+
+    #multimedia {
+        grid-area: multimedia;
+    }
+
+    #formularios {
+        grid-area: formularios;
+    }
+
+    #tablas {
+        grid-area: tablas;
+    }
+
+    #html {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "parrafos tablas"
+            "listas tablas"
+            "multimedia formularios";
+    }
 }
