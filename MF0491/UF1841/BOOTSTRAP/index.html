@@ -15,21 +15,293 @@
 
 </head>
 
-<body class="container">
+<body class="container-fluid">
     <div class="row">
         <!-- header>h1{HTML} -->
-        <header>
+        <header class="d-none">
             <h1>HTML</h1>
         </header>
-        <!-- nav>ul>li*4>a[href="#"]{Vínculo $} -->
-        <nav>
-            <ul>
-                <li><a href="#">Vínculo 1</a></li>
-                <li><a href="#">Vínculo 2</a></li>
-                <li><a href="#">Vínculo 3</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Ejemplos de HTML</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 3</a></li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
+        
+        <nav aria-label="breadcrumb" class="bg-dark">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            Bienvenidos a este ejemplo de Bootstrap
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <main class="col-xxl-10">
+            <article id="bootstrap">
+                <h2>Bootstrap</h2>
+
+                <section id="modal">
+                    <h3>Modal</h3>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mi-modal">
+                        Ver demostración de modal con fondo estático
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="mi-modal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Mi modal</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Recuerda mirar como funcionan los modales
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="cards">
+                    <h3>Cards</h3>
+
+                    <div
+                        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?1" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?2" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This card has supporting text below as a natural lead-in to
+                                        additional content.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://placeimg.com/640/480/people?3" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first
+                                        to show that equal height action.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
             <article id="html" class="row">
                 <h2>HTML</h2>
 
@@ -51,7 +323,7 @@
                         eius porro quo nemo amet fuga,
                         corporis commodi unde!</p>
 
-                    <blockquote>
+                    <blockquote class="blockquote">
                         El 20% del tiempo hacemos el programa.
                         El 80% restante lo perdemos en buscar el error tonto.
                     </blockquote>
@@ -71,40 +343,40 @@
                         <li>Número 3</li>
                     </ol>
 
-                    <dl>
-                        <dt>HTML</dt>
-                        <dd>Hyper Text Markup Language</dd>
-                        <dt>CSS</dt>
-                        <dd>Cascade Style Sheets</dd>
+                    <dl class="row">
+                        <dt class="col-2 col-sm-12">HTML</dt>
+                        <dd class="col-10 col-sm-12">Hyper Text Markup Language</dd>
+                        <dt class="col-2 col-sm-12">CSS</dt>
+                        <dd class="col-10 col-sm-12">Cascade Style Sheets</dd>
                     </dl>
                 </section>
                 <section id="multimedia" class="order-md-4 col-md-6">
                     <h3>Multimedia</h3>
 
-                    <figure>
-                        <img src="../imgs/HTML5.svg" width="300" height="300" alt="Logo HTML5" />
-                        <figcaption>HTML5</figcaption>
+                    <figure class="img-thumbnail figure w-100">
+                        <img class="figure-img img-fluid rounded" src="../imgs/HTML5.svg" alt="Logo HTML5" />
+                        <figcaption class="figure-caption">HTML5</figcaption>
                     </figure>
 
-                    <audio src="../audios/badumtss.mp3" controls></audio>
+                    <audio class="w-100" src="../audios/badumtss.mp3" controls></audio>
 
-                    <video width="160" height="90" src="../videos/Big_Buck_Bunny_360_10s_1MB.mp4" controls></video>
+                    <video class="w-100 img-thumbnail" src="../videos/Big_Buck_Bunny_360_10s_1MB.mp4" controls></video>
 
-                    <div class="proporcion r16x9">
-                        <iframe src="https://formacion.ipartek.com" width="400" height="300"></iframe>
+                    <div class="img-thumbnail ratio ratio-16x9">
+                        <iframe src="https://formacion.ipartek.com"></iframe>
                     </div>
-                    <div class="proporcion r1x1">
+                    <div class="img-thumbnail ratio ratio-1x1">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766599!2d-2.9157806847907275!3d43.25640788601609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1648546521209!5m2!1ses!2ses"
                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="proporcion r16x9">
+                    <div class="img-thumbnail ratio ratio-16x9">
                         <iframe
                             src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUbj5dNZ89An?utm_source=generator"
                             allowfullscreen=""
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
-                    <div class="proporcion r4x3">
+                    <div class="img-thumbnail ratio ratio-4x3">
                         <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58" title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -113,118 +385,159 @@
                 <section id="tablas" class="order-md-3 col-lg-5">
                     <h3>Tablas</h3>
 
-                    <table>
-                        <caption>Usuarios</caption>
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <th colspan="2">Datos personales</th>
-                            </tr>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- tr*4>(th>{$})(td>{Nombre $})(td>{Apellido $}) -->
-                            <tr>
-                                <th>1</th>
-                                <td>Nombre 1</td>
-                                <td>Apellido 1</td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Nombre 2</td>
-                                <td>Apellido 2</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Nombre 3</td>
-                                <td>Apellido 3</td>
-                            </tr>
-                            <tr>
-                                <th>4</th>
-                                <td>Nombre 4</td>
-                                <td>Apellido 4</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered table-striped">
+                            <caption>Usuarios</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <td></td>
+                                    <th colspan="2">Datos personales</th>
+                                </tr>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- tr*4>(th>{$})(td>{Nombre $})(td>{Apellido $}) -->
+                                <tr>
+                                    <th>1</th>
+                                    <td>Nombre 1</td>
+                                    <td>Apellido 1</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>Nombre 2</td>
+                                    <td>Apellido 2</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td>Nombre 3</td>
+                                    <td>Apellido 3</td>
+                                </tr>
+                                <tr>
+                                    <th>4</th>
+                                    <td>Nombre 4</td>
+                                    <td>Apellido 4</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </section>
                 <section id="formularios" class="order-md-5 col-md-6">
                     <h3>Formularios</h3>
 
-                    <form action="https://www.google.es/search">
+                    <form action="https://www.google.es/search" class="needs-validation" novalidate>
                         <fieldset>
                             <legend>Búsqueda en Google</legend>
-                            <input type="search" name="q" placeholder="Pon el texto a buscar en Google">
-                            <button>Buscar en Google</button>
+                            <div class="input-group mb-3">
+                                <div class="form-floating form-floating-group has-validation flex-grow-1">
+                                    <input required type="search" class="form-control" name="q" id="q"
+                                        placeholder="Texto a buscar">
+                                    <label for="q">Texto a buscar</label>
+                                    <div class="invalid-feedback">
+                                        Debes introducir un texto para poder buscarlo
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary">Buscar</button>
+                            </div>
                         </fieldset>
+
                     </form>
+
+                    <script>
+                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+                        (function () {
+                            'use strict'
+
+                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                            var forms = document.querySelectorAll('.needs-validation')
+
+                            // Loop over them and prevent submission
+                            Array.prototype.slice.call(forms)
+                                .forEach(function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (!form.checkValidity()) {
+                                            event.preventDefault()
+                                            event.stopPropagation()
+                                        }
+
+                                        form.classList.add('was-validated')
+                                    }, false)
+                                })
+                        })()
+                    </script>
 
                     <form class="row">
                         <fieldset class="col-xl-6 order-xl-1">
                             <legend>Datos de login</legend>
 
                             <div>
-                                <label for="email">Email</label>
-                                <input type="email" id="email">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control" type="email" id="email">
                             </div>
                             <div>
-                                <label for="password">Contraseña</label>
-                                <input type="password" id="password">
+                                <label class="form-label" for="password">Contraseña</label>
+                                <input class="form-control" type="password" id="password">
                             </div>
                         </fieldset>
                         <fieldset class="col-xl-6 order-xl-3">
                             <legend>Datos personales</legend>
 
                             <div>
-                                <label for="nombre">Nombre</label>
-                                <input type="text" required minlength="2" id="nombre"
+                                <label class="form-label" for="nombre">Nombre</label>
+                                <input class="form-control" type="text" required minlength="2" id="nombre"
                                     placeholder="El nombre con el que te llaman tus amigos">
                             </div>
                             <div>
-                                <label for="edad">Edad</label>
-                                <input type="number" min="18" id="edad">
+                                <label class="form-label" for="edad">Edad</label>
+                                <input class="form-control" type="number" min="18" id="edad">
                             </div>
                             <div>
-                                <label for="nacimiento">Fecha de nacimiento</label>
-                                <input type="date" id="nacimiento">
+                                <label class="form-label" for="nacimiento">Fecha de nacimiento</label>
+                                <input class="form-control" type="date" id="nacimiento">
+                            </div>
+
+                            <div>
+                                <label class="form-label" for="hora">Hora de nacimiento</label>
+                                <input class="form-control" type="time" id="hora">
+                            </div>
+                            <div>
+                                <label class="form-label" for="valoracion">Valoración</label>
+                                <input class="form-range" type="range" min="1" max="10" step="2" name="valoracion"
+                                    id="valoracion">
                             </div>
 
                             <div>
-                                <label for="hora">Hora de nacimiento</label>
-                                <input type="time" id="hora">
-                            </div>
-                            <div>
-                                <label for="valoracion">Valoración</label>
-                                <input type="range" min="1" max="10" step="2" name="valoracion" id="valoracion">
-                            </div>
-                            <div>
-                                <label for="donacion">Donación</label>
-                                <input type="number" min="0" step=".01" id="donacion">
+                                <label class="form-label" for="donacion">Donación</label>
+                                <div class="input-group">
+                                    <input class="form-control" type="number" min="0" step=".01" id="donacion">
+                                    <span class="input-group-text">€</span>
+                                </div>
                             </div>
 
 
 
                             <div>
-                                <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono">
+                                <label class="form-label" for="telefono">Teléfono</label>
+                                <input class="form-control" type="tel" id="telefono">
                             </div>
                             <div>
-                                <label for="url">Página web</label>
-                                <input type="url" id="url">
+                                <label class="form-label" for="url">Página web</label>
+                                <input class="form-control" type="url" id="url">
                             </div>
                             <div>
-                                <label for="profesion">Profesión</label>
-                                <select id="profesion">
+                                <label class="form-label" for="profesion">Profesión</label>
+                                <select class="form-select" id="profesion">
                                     <option value="1">Profesión 1</option>
                                     <option value="2">Profesión 2</option>
                                     <option value="3">Profesión 3</option>
@@ -232,8 +545,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="hobbies">Hobbies</label>
-                                <select id="hobbies" multiple>
+                                <label class="form-label" for="hobbies">Hobbies</label>
+                                <select class="form-select" id="hobbies" multiple>
                                     <option value="1">Hobby 1</option>
                                     <option value="2">Hobby 2</option>
                                     <option value="3">Hobby 3</option>
@@ -244,28 +557,29 @@
                         </fieldset>
                         <fieldset class="col-xl-6 order-xl-2">
                             <legend>Nivel de inglés</legend>
-                            <input type="radio" id="basico" name="nivel">
-                            <label for="basico">Básico</label>
-                            <input type="radio" id="medio" name="nivel">
-                            <label for="medio">Medio</label>
-                            <input type="radio" id="avanzado" name="nivel">
-                            <label for="avanzado">Avanzado</label>
+                            <input class="form-check-input" type="radio" id="basico" name="nivel">
+                            <label class="form-check-label" for="basico">Básico</label>
+                            <input class="form-check-input" type="radio" id="medio" name="nivel">
+                            <label class="form-check-label" for="medio">Medio</label>
+                            <input class="form-check-input" type="radio" id="avanzado" name="nivel">
+                            <label class="form-check-label" for="avanzado">Avanzado</label>
                         </fieldset>
                         <fieldset class="col-xl-6 order-xl-4">
                             <legend>Aceptar</legend>
 
                             <div>
-                                <label for="comentarios">Comentarios</label>
-                                <textarea id="comentarios" cols="30" rows="10"></textarea>
+                                <label class="form-label" for="comentarios">Comentarios</label>
+                                <textarea class="form-control" id="comentarios" cols="30" rows="10"></textarea>
                             </div>
                             <div>
-                                <label for="rgpd">¿Aceptas las condiciones de privacidad?</label>
-                                <input type="checkbox" required id="rgpd">
+                                <label class="form-check-label" for="rgpd">¿Aceptas las condiciones de
+                                    privacidad?</label>
+                                <input class="form-check-input" type="checkbox" required id="rgpd">
                             </div>
                             <div>
-                                <input type="submit" value="Guardar">
-                                <input type="reset" value="Restablecer">
-                                <button>Guardar</button>
+                                <input class="btn btn-warning" type="submit" value="Guardar">
+                                <input class="btn btn-danger" type="reset" value="Restablecer">
+                                <button class="btn btn-primary">Guardar</button>
                             </div>
                         </fieldset>
                     </form>
@@ -276,7 +590,7 @@
         <aside class="col-xxl-2">
             <!-- nav>ul>li*4>a[href="#"]{Vínculo $} -->
             <nav>
-                <ul>
+                <ul class="list-unstyled">
                     <li><a href="#">Anuncio 1</a></li>
                     <li><a href="#">Anuncio 2</a></li>
                     <li><a href="#">Anuncio 3</a></li>
