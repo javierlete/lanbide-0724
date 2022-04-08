@@ -38,33 +38,9 @@
         <header class="d-none">
             <h1>HTML</h1>
         </header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Ejemplos de HTML</a>
-                <a class="navbar-brand" href="#">
-                    <img src="../imgs/HTML5.svg" alt="" width="30" height="24">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="flex-wrap navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Vínculo 3</a></li>
-                    </ul>
-                    <span class="navbar-text">
-                        Javier
-                    </span>
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        
+        <div class="p-0" w3-include-html="includes/navbar.html"></div>
+        
         <nav aria-label="breadcrumb" class="bg-dark">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -631,6 +607,8 @@
             <a href="#arriba" class="position-fixed bottom-0 end-0 btn btn-lg fs-4 btn-primary shadow-sm border rounded-pill mb-3 me-3" style="z-index: 2000"><i class="fa-solid fa-arrow-up"></i></a>
         </footer>
     </div>
+
+    <script src="js/w3-include-HTML.js"></script>
 </body>
 
 </html>

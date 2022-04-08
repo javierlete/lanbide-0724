@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración</title>
 
-    
+
     <!-- FontAwesome (iconos) -->
     <link rel="stylesheet" href="css/all.min.css">
     <!-- Bootstrap CSS -->
@@ -14,29 +15,10 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Administración</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="flex-wrap navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                </ul>
-                <span class="navbar-text">
-                    Javier
-                </span>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="p-0" w3-include-html="includes/navbar.html"></div>
+
     <main>
         <table class="table table-hover table-striped table-bordered">
             <caption>Usuarios</caption>
@@ -47,37 +29,42 @@
                 <th>Opciones</th>
             </thead>
             <tbody>
-                
+
                 <!-- tr*5>(th>{$})(td>{email$\@email.net})(td>{password$})(td>(a.btn.btn-primary[href=usuario.html]>{Editar})(a.btn.btn-danger[href=#]>{Borrar})) -->
                 <tr>
                     <th>1</th>
                     <td>email1@email.net</td>
                     <td>password1</td>
-                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a
+                            href="#" class="btn btn-danger">Borrar</a></td>
                 </tr>
                 <tr>
                     <th>2</th>
                     <td>email2@email.net</td>
                     <td>password2</td>
-                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a
+                            href="#" class="btn btn-danger">Borrar</a></td>
                 </tr>
                 <tr>
                     <th>3</th>
                     <td>email3@email.net</td>
                     <td>password3</td>
-                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a
+                            href="#" class="btn btn-danger">Borrar</a></td>
                 </tr>
                 <tr>
                     <th>4</th>
                     <td>email4@email.net</td>
                     <td>password4</td>
-                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a
+                            href="#" class="btn btn-danger">Borrar</a></td>
                 </tr>
                 <tr>
                     <th>5</th>
                     <td>email5@email.net</td>
                     <td>password5</td>
-                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                    <td><a href="usuario.html" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar</a><a
+                            href="#" class="btn btn-danger">Borrar</a></td>
                 </tr>
 
             </tbody>
@@ -94,5 +81,8 @@
         </table>
 
     </main>
+
+    <script src="js/w3-include-HTML.js"></script>
 </body>
+
 </html>
