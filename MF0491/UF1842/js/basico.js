@@ -37,7 +37,7 @@ function interaccionUsuario() {
 function conversiones() {
     // El + convierte a number
     const op1 = +prompt('Dime el op1');
-    const op2 = +prompt('Dime el op2');
+    const op2 = parseInt(prompt('Dime el op2'), 10);
 
     // Sumamos dos number
     console.log(op1 + op2);
@@ -139,7 +139,7 @@ function sentenciasControl() {
     // console.log('Fin', contador);
 }
 
-arrays();
+// arrays();
 
 // Arreglos, matrices, arrays...
 function arrays() {
@@ -236,7 +236,7 @@ function arrays() {
     console.log(diccionario[termino]);
 
     const diccionarioDiasSemana = [];
-    
+
     diccionarioDiasSemana['lunes'] = 1;
     diccionarioDiasSemana['martes'] = 2;
     diccionarioDiasSemana['miercoles'] = 3;
@@ -247,4 +247,82 @@ function arrays() {
 
     console.log(diccionarioDiasSemana.viernes);
     console.log(diccionarioDiasSemana['jueves']);
+}
+
+operadores();
+
+function operadores() {
+    // Aritméticos
+    // +, -, *, /, % (resto de la división entera)
+
+    console.log(5 ** 3); // 5 elevado a 3
+
+    console.log(Math.max(5, 6, 3, 2, 1));
+
+    console.log(5 + 3 + 1);
+
+    // Comparaciones
+    // >, <, >=, <=, ==, ===, !=, !==
+    console.log(5 == '5'); // true
+    console.log(5 === '5'); // false (los tipos no concuerdan)
+
+    const x = -10;
+
+    // Lógicos
+    // &&, &, ||, |, !
+
+    // Dentro del rango 1 a 10
+    console.log(1 <= x && x <= 10);
+    // Fuera del rango 1 a 10
+    console.log(!(1 <= x && x <= 10));
+    console.log(x < 1 || x > 10);
+
+    // Operadores a NIVEL DE BITS (casi anecdóticos)
+    console.log(5 & 3); // 5 AND 3
+    console.log(5 | 3); // 5 OR  3
+    console.log(5 ^ 3); // 5 XOR 3
+
+    // Asignación
+    let y, z;
+    y = z = 1;
+
+    // Siendo @ (inventado) cualquier operador como +, - ...
+    // x = x @ y;
+    // x @= y
+
+    y /= 7;
+
+    // Post/preincrementos y post/predecrementos
+
+    z = 1;
+
+    console.log('POST INCREMENTO')
+    console.log('ANTES', z);
+    console.log('DURANTE', z++);
+    console.log('DESPUÉS', z);
+
+    z = 1;
+
+    console.log('PRE INCREMENTO');
+    console.log('ANTES', z);
+    console.log('DURANTE', ++z);
+    console.log('DESPUÉS', z);
+
+    // Operador ternario
+    // booleano ? resultadoSiVerdadero : resultadoSiFalso
+
+    const b = true;
+
+    console.log(b ? 'OK' : 'KO');
+
+    y = 10; z = 55;
+    console.log(y > z ? y : z);
+
+    // Operador "nullish coalescing"
+    let v = 10;
+
+    console.log(v ? v : 'VALE NULO');
+    console.log(v ?? 'VALE NULO');
+
+    v ??= 'Vale nulo';
 }
