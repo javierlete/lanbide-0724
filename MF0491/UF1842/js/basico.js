@@ -249,7 +249,7 @@ function arrays() {
     console.log(diccionarioDiasSemana['jueves']);
 }
 
-operadores();
+// operadores();
 
 function operadores() {
     // Aritméticos
@@ -325,4 +325,143 @@ function operadores() {
     console.log(v ?? 'VALE NULO');
 
     v ??= 'Vale nulo';
+}
+
+// funciones();
+
+function funciones() {
+    function sumar(a, b) {
+        return a + b;
+    }
+
+    console.log(sumar(5, 7));
+    console.log(sumar(1, 2));
+}
+
+var objetos = function () {
+    // Objeto sin prototipo
+    var p = Object();
+
+    p.nombre = 'Javier';
+    p.apellido = 'Lete';
+    p['profesion'] = 'Profesor';
+
+    p.nombreCompleto = function () {
+        return this.nombre + ' ' + this.apellido;
+    };
+
+    function datosCompletos() {
+        return this.nombreCompleto() + ' ' + this.profesion;
+    }
+
+    p.datosCompletos = datosCompletos;
+
+    console.log(p);
+
+    console.log(p['nombre']);
+
+    console.log(typeof p);
+    console.log(typeof p.nombreCompleto);
+    console.log(p.nombreCompleto);
+    console.log(p.nombreCompleto());
+
+    // console.log(datosCompletos());
+    console.log(p.datosCompletos());
+
+    // Objeto con prototipo
+    function Persona(nombre, apellido, profesion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.profesion = profesion;
+    }
+
+    Persona.prototype.nombreCompleto = function () {
+        return this.nombre + ' ' + this.apellido;
+    }
+
+    Persona.prototype.datosCompletos = function () {
+        return this.nombreCompleto() + ' ' + this.profesion;
+    }
+    // Fin declaración prototipo Persona
+    var persona = new Persona('Pepe', 'Pérez', 'Informático');
+
+    console.log(persona);
+    console.log(typeof persona);
+
+    console.log(persona.nombre);
+    console.log(persona.nombreCompleto());
+    console.log(persona.datosCompletos());
+
+    var persona2 = new Persona('Desconocido');
+
+    console.log(persona2);
+    console.log(persona2.datosCompletos());
+
+    console.log('asdf'.substring(1, 3));
+
+    String.prototype.substring = function () {
+        return 'Lalaralalaaaaa';
+    }
+
+    console.log('asdf'.substring(1, 3));
+}
+
+// objetos();
+
+clases();
+
+function clases() {
+    class Persona {
+        constructor(nombre, apellido, profesion) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.profesion = profesion;
+        }
+        nombreCompleto() {
+            return this.nombre + ' ' + this.apellido;
+        }
+    }
+
+    Persona.prototype.datosCompletos = function () {
+        return this.nombreCompleto() + ' ' + this.profesion;
+    }
+
+    const persona = new Persona('Pepe', 'Pérez', 'Informático');
+
+    persona.sexo = 'Masculino';
+    persona.profession = 'aksjdfkasd';
+
+    console.log(persona);
+    console.log(typeof persona);
+
+    console.log(persona.nombre);
+    console.log(persona.nombreCompleto());
+    console.log(persona.datosCompletos());
+
+    const persona2 = new Persona('Desconocido');
+
+    console.log(persona2);
+    console.log(persona2.datosCompletos());
+
+    const personas = [];
+
+    personas.push(new Persona('Javier', 'Lete', 'profesor'));
+    personas.push(new Persona('Pepe', 'Pérez', 'Programador'));
+    personas.push(new Persona('Juan', 'González', 'Gerente'));
+
+    for (let p of personas) {
+        console.log(p.datosCompletos());
+    }
+}
+
+objetosJson();
+
+function objetosJson() {
+    const persona = {
+        nombre: 'Javier',
+        apellido: 'Lete',
+        profesion: 'Profesor'
+    }
+
+    console.log(persona);
 }
