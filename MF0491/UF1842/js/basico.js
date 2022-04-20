@@ -461,7 +461,12 @@ function objetosJson() {
         nombre: 'Javier',
         apellido: 'Lete',
         profesion: 'Profesor'
-    }
+    };
+
+    // persona.apellidos = 'asdflkajsdfl';
+    persona.profesion = 'Programador';
+
+    // persona = {};
 
     console.log(persona);
 }
