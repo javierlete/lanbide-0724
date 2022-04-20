@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="js/basico.js"></script>
+    <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup/24070373#24070373 -->
+    <script src="js/dom.js" defer></script>
 </head>
 <body>
+    <form>
+        <input id="nombre" placeholder="Introduce el nombre para que te salude">
+        <button type="button" id="btn-saludar">Saludar</button>
+    </form>
+    
     <h1>ANTES</h1>
     <h1>DESPUÉS</h1>
+
 </body>
 </html>
