@@ -9,8 +9,33 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let a, operacion, b, resultado;
 
+    window.addEventListener('keypress', function (e) {
+        console.log(e.key);
+
+        switch (e.key) {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9': procesarDigito(e.key); break;
+            case '+':
+            case '-':
+            case '*':
+            case '/': procesarOperacion(e.key); break;
+            case 'c': procesarBorrar(); break;
+            case 'Enter':
+            case '=': procesarEjecutar(); break;
+        }
+    });
+
+
     borrar.addEventListener('click', function () {
-        res.value = '';
+        procesarBorrar();
     });
 
     // Esto crearía tantas constantes como botones numéricos haya
@@ -19,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function () {
         boton.addEventListener('click', function () {
             // this representa el botón concreto que ha lanzado el evento
             // Si pulsas el botón 2, this es el botón 2
-            res.value += this.innerText;
+            procesarDigito(this.innerText);
         });
     }
 
@@ -29,20 +54,36 @@ window.addEventListener('DOMContentLoaded', function () {
         op.addEventListener('click', function () {
             // this en este caso representa el botón de operación concreto
             // que se ha pulsado
-            operacion = this.innerText;
-
-            // Guardamos el valor que había en pantalla al pulsar la operación
-            a = +res.value;
-
-            // Vaciamos la pantalla
-            res.value = '';
-
-            console.log(a);
-            console.log(operacion);
+            procesarOperacion(this.innerText);
         });
     }
 
     ejecutar.addEventListener('click', function () {
+        procesarEjecutar();
+    });
+
+    function procesarDigito(digito) {
+        res.value += digito;
+    }
+
+    function procesarOperacion(o) {
+        operacion = o;
+
+        // Guardamos el valor que había en pantalla al pulsar la operación
+        a = +res.value;
+
+        // Vaciamos la pantalla
+        res.value = '';
+
+        console.log(a);
+        console.log(operacion);
+    }
+
+    function procesarBorrar() {
+        res.value = '';
+    }
+
+    function procesarEjecutar() {
         // Almacenamos el valor que hay en pantalla
         // como segundo operando
         b = +res.value;
@@ -61,5 +102,5 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // Cargamos el resultado en pantalla
         res.value = resultado;
-    });
+    }
 });
