@@ -20,6 +20,10 @@ window.addEventListener('DOMContentLoaded', function() {
             case '/': resultado = a / b; break;
         }
 
-        res.innerText = resultado;
+       if(isNaN(resultado)){
+            alert("Las entradas tienen que tener ambos un NUMERO!");
+        }else{
+            res.innerText = resultado;
+        }
     });
 });
