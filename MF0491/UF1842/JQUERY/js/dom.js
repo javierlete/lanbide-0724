@@ -1,6 +1,9 @@
 'use strict';
 
+console.log(this); //window
+
 $(function () {
+    console.log(this); //document
     console.log('DENTRO');
 
     // const h1s = document.getElementsByTagName('h1');
@@ -11,6 +14,7 @@ $(function () {
     // }
     
     $('h1').each(function() {
+        console.log(this); //h1
         console.log(this.innerText);
         
         this.innerText += ' modificado por JavaScript';
@@ -23,6 +27,7 @@ $(function () {
 
     // boton.addEventListener('click', function () {
     $('#btn-saludar').on('click', function () {
+        console.log(this); //button
         // const respuesta = document.createElement('span');
         // respuesta.id = 'respuesta';
 
