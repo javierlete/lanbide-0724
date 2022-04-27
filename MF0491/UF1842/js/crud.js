@@ -41,7 +41,24 @@ async function guardar(e) {
     await cargarTabla();
 }
 
+let datatables;
+
 async function cargarTabla() {
+    // Si existe datatables
+    // if(datatables) {
+    //     Ejecuta datatables.destroy()
+    //     datatables.destroy();
+    // }
+
+    // datatables ? datatables.destroy : null;
+
+    // Si existe datatables, ejecuta la sentencia
+    // datatables.destroy()
+    // datatables && datatables.destroy();
+
+    // Si existe datatables, ejecuta el método destroy()
+    datatables?.destroy();
+
     const tbody = document.querySelector('tbody');
 
     tbody.innerHTML = '';
@@ -65,7 +82,7 @@ async function cargarTabla() {
 
     // DATATABLES.NET
     // $(function () {
-        $('table').DataTable( {
+        datatables = $('table').DataTable( {
             language: {
                 url: 'http://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
             }
