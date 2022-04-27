@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
+
+    <!-- DATATABLES.NET -->
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- Requerido por DATATABLES.NET -->
+    <script src="JQUERY/js/jquery-3.6.0.min.js"></script>
+    <!-- DATATABLES.NET -->
+    <script src="http://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        // En casos en los que no se rellena la tabla
+        // por programación, se pondría este código
+        
+        // $(function () {
+        //    $('table').DataTable();
+        // });
+    </script>
     <script src="js/crud.js"></script>
 </head>
+
 <body>
     <table>
         <thead>
@@ -32,4 +51,5 @@
         <button>Guardar</button>
     </form>
 </body>
+
 </html>
