@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,8 @@
 
     <form>
         <input type="number" id="id" placeholder="id" readonly>
-        <input type="text" id="nombre" placeholder="nombre">
+        <input type="text" id="nombre" placeholder="nombre"><!-- required pattern="^\p{L}{3}[\p{L} ]*$" -->
+        <span id="error"></span>
         <button>Guardar</button>
     </form>
 </body>

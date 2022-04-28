@@ -20,6 +20,18 @@ async function guardar(e) {
     // recargar la página (lo que limpia la consola del navegador)
     e.preventDefault();
 
+    if (!/^\w{3}[\w ]*$/.test(inputNombre.value)) {
+        //alert('El nombre debe tener 3 o más caracteres');
+
+        const error = document.querySelector('#error');
+        error.innerHTML = 'El nombre debe tener 3 o más caracteres';
+        error.classList.add('error');
+
+        inputNombre.focus();
+        
+        return;
+    }
+
     const persona = { id: inputId.value, nombre: inputNombre.value };
     const json = JSON.stringify(persona);
     
