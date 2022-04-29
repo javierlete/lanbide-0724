@@ -7,7 +7,7 @@ let inputId, inputNombre;
 window.addEventListener('DOMContentLoaded', async function () {
     inputId = document.querySelector('#id');
     inputNombre = document.querySelector('#nombre');
-    
+
     await cargarTabla();
 
     document.querySelector('form').addEventListener('submit', guardar);
@@ -28,20 +28,20 @@ async function guardar(e) {
         error.classList.add('error');
 
         inputNombre.focus();
-        
+
         return;
     }
 
     const persona = { id: inputId.value, nombre: inputNombre.value };
     const json = JSON.stringify(persona);
-    
+
     const cabeceras = new Headers();
     cabeceras.append("Content-type", "application/json");
 
     let metodo = 'POST';
     let url = URL;
 
-    if(persona.id) {
+    if (persona.id) {
         metodo = 'PUT';
         url = URL + persona.id;
     }
@@ -58,8 +58,8 @@ let datatables;
 async function cargarTabla() {
     // Si existe datatables
     // if(datatables) {
-    //     Ejecuta datatables.destroy()
-    //     datatables.destroy();
+    // Ejecuta datatables.destroy()
+    // datatables.destroy();
     // }
 
     // datatables ? datatables.destroy : null;
@@ -69,36 +69,59 @@ async function cargarTabla() {
     // datatables && datatables.destroy();
 
     // Si existe datatables, ejecuta el método destroy()
-    datatables?.destroy();
+    // datatables?.destroy();
 
-    const tbody = document.querySelector('tbody');
+    // const tbody = document.querySelector('tbody');
 
-    tbody.innerHTML = '';
+    // tbody.innerHTML = '';
 
-    const respuesta = await fetch(URL);
-    const personas = await respuesta.json();
+    // const respuesta = await fetch(URL);
+    // const personas = await respuesta.json();
 
-    personas.forEach(function (persona) {
-        const tr = document.createElement('tr');
+    // personas.forEach(function (persona) {
+    //     const tr = document.createElement('tr');
 
-        tr.innerHTML = `
-            <th>${persona.id}</th>
-            <td>${persona.nombre}</td>
-            <td>
-                <a href="javascript:editar(${persona.id})">Editar</a>
-                <a href="javascript:borrar(${persona.id})">Borrar</a>
-            </td>`;
+    //     tr.innerHTML = `
+    //         <th>${persona.id}</th>
+    //         <td>${persona.nombre}</td>
+    //         <td>
+    //             <a href="javascript:editar(${persona.id})">Editar</a>
+    //             <a href="javascript:borrar(${persona.id})">Borrar</a>
+    //         </td>`;
 
-        tbody.appendChild(tr);
-    });
+    //     tbody.appendChild(tr);
+    // });
 
     // DATATABLES.NET
     // $(function () {
-        datatables = $('table').DataTable( {
+    if (datatables) {
+        datatables.ajax.reload();
+    } else {
+        datatables = $('table').DataTable({
             language: {
-                url: 'http://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-            }
+                url: 'http://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json',
+            },
+            ajax: {
+                url: 'http://localhost:3000/personas/',
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'id' },
+                { data: 'nombre' },
+                { data: null }
+            ],
+            columnDefs: [{
+                targets: -1,
+                data: null,
+                render: function (data, type, row, meta) {
+                    return `
+                         <a href="javascript:editar(${data.id})">Editar</a>
+                         <a href="javascript:borrar(${data.id})">Borrar</a>
+                      `;
+                }
+            }]
         });
+    }
     // });
 }
 
