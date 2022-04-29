@@ -99,7 +99,7 @@ async function cargarTabla() {
     } else {
         datatables = $('table').DataTable({
             language: {
-                url: 'http://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json',
+                url: 'json/es-ES.json',
             },
             ajax: {
                 url: 'http://localhost:3000/personas/',
