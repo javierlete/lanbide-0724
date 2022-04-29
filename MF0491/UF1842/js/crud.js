@@ -20,16 +20,20 @@ async function guardar(e) {
     // recargar la página (lo que limpia la consola del navegador)
     e.preventDefault();
 
+    const error = document.querySelector('#error');
+
     if (!/^\w{3}[\w ]*$/.test(inputNombre.value)) {
         //alert('El nombre debe tener 3 o más caracteres');
 
-        const error = document.querySelector('#error');
         error.innerHTML = 'El nombre debe tener 3 o más caracteres';
         error.classList.add('error');
 
         inputNombre.focus();
 
         return;
+    } else {
+        error.innerHTML = '';
+        error.classList.remove('error');
     }
 
     const persona = { id: inputId.value, nombre: inputNombre.value };
@@ -115,8 +119,8 @@ async function cargarTabla() {
                 data: null,
                 render: function (data, type, row, meta) {
                     return `
-                         <a href="javascript:editar(${data.id})">Editar</a>
-                         <a href="javascript:borrar(${data.id})">Borrar</a>
+                         <a class="btn btn-primary btn-sm" href="javascript:editar(${data.id})">Editar</a>
+                         <a class="btn btn-primary btn-sm" href="javascript:borrar(${data.id})">Borrar</a>
                       `;
                 }
             }]
