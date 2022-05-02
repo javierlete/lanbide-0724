@@ -11,6 +11,15 @@ window.addEventListener('DOMContentLoaded', async function () {
     await cargarTabla();
 
     document.querySelector('form').addEventListener('submit', guardar);
+
+    let modalDom = document.querySelector('#estas-seguro');
+
+    modalDom.addEventListener('show.bs.modal', function (e) {
+        let a = e.relatedTarget;
+        let aSi = document.querySelector('#a-si');
+
+        aSi.href = a.href;
+    });
 });
 
 async function guardar(e) {
@@ -120,7 +129,7 @@ async function cargarTabla() {
                 render: function (data, type, row, meta) {
                     return `
                          <a class="btn btn-primary btn-sm" href="javascript:editar(${data.id})">Editar</a>
-                         <a class="btn btn-primary btn-sm" href="javascript:borrar(${data.id})">Borrar</a>
+                         <a class="btn btn-danger btn-sm" href="javascript:borrar(${data.id})" data-bs-toggle="modal" data-bs-target="#estas-seguro">Borrar</a>
                       `;
                 }
             }]
@@ -130,11 +139,19 @@ async function cargarTabla() {
 }
 
 async function borrar(id) {
+    // if(!confirm('¿Está seguro de borrar la persona?')) {
+    //     return;
+    // }
+
     const respuesta = await fetch(URL + id, { method: 'DELETE' });
 
     console.log(respuesta);
 
     await cargarTabla();
+
+    let modalDom = document.querySelector('#estas-seguro');
+    let modal = bootstrap.Modal.getInstance(modalDom);
+    modal.hide();
 }
 
 async function editar(id) {
