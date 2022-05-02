@@ -8,5 +8,31 @@
       "id": 2,
       "nombre": "Pepe"
     }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "titulo": "Rick Roll",
+      "url": "dQw4w9WgXcQ",
+      "personaId": 1
+    },
+    {
+      "id": 2,
+      "titulo": "El chasquido de Thanos",
+      "url": "JhTXNyphvAY",
+      "personaId": 2
+    },
+    {
+      "id": 3,
+      "titulo": "Thor Love And Thunder",
+      "url": "5VXTHCjRYek",
+      "personaId": 1
+    },
+    {
+      "titulo": "25 momentos",
+      "url": "DQqOVnnHyXI",
+      "personaId": 1,
+      "id": 4
+    }
   ]
 }

@@ -8,87 +8,31 @@
     <title>Videos</title>
     <link rel="stylesheet" href="css/datatables.min.css">
     <script src="js/datatables.min.js"></script>
+    <script src="js/videos.js"></script>
 </head>
 
 <body>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+    <div id="videos" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="video" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Visualización video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="embebido" src="" 
+                            allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="http://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
