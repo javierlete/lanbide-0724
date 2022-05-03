@@ -18,7 +18,9 @@ window.addEventListener('DOMContentLoaded', async function() {
             <div class="card h-100">
                 <img src="http://i3.ytimg.com/vi/${video.url}/hqdefault.jpg" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title"><a class="stretched-link" data-bs-toggle="modal" data-bs-target="#video" data-id="${video.id}" href="#">${video.titulo}</a></h5>
+                    <h5 class="card-title">
+                        <a class="text-secondary text-decoration-none stretched-link" data-bs-toggle="modal" data-bs-target="#video" data-id="${video.id}" href="#">${video.titulo}</a>
+                    </h5>
                 </div>
             </div>
         `;

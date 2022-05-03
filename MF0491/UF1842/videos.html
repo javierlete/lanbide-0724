@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="h-100"> <!-- FOOTER ABAJO SIEMPRE -->
 
 <head>
     <meta charset="UTF-8">
@@ -11,11 +11,42 @@
     <script src="js/videos.js"></script>
 </head>
 
-<body>
-    <div id="videos" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+<body class="d-flex flex-column h-100"> <!-- FOOTER ABAJO SIEMPRE -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VideosApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Principal</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">Usuario</span>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Administración</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid p-3">
+        <div id="videos"
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
 
-    </div>
-
+        </div>
+    </main>
+    <footer class="bg-dark text-light p-3 mt-auto"> <!-- FOOTER ABAJO SIEMPRE -->
+        <p class="text-center">&copy; 2022 - VideosApp</p>
+    </footer>
     <!-- Modal -->
     <div class="modal fade" id="video" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -27,8 +58,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="ratio ratio-16x9">
-                        <iframe id="embebido" src="" 
-                            allowfullscreen></iframe>
+                        <iframe id="embebido" src="" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="modal-footer">
