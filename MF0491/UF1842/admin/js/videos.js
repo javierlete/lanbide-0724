@@ -1,9 +1,11 @@
 'use strict';
 
 const URL = 'http://localhost:3000/videos/';
+const LISTADO = '.dataTables_wrapper';
+const FORMULARIO = '#video';
 
 window.addEventListener('DOMContentLoaded', async function () {
-    ocultar('form');
+    ocultar(FORMULARIO);
 
     cargarVideos();
 
@@ -12,15 +14,17 @@ window.addEventListener('DOMContentLoaded', async function () {
 
 async function guardar(event) {
     event.preventDefault();
-    
+
     const video = formulario2video();
 
     const response = await guardarVideo(video);
-    
+
+    console.log(response);
+
     cargarVideos();
-    
-    ocultar('form');
-    mostrar('table');
+
+    ocultar(FORMULARIO);
+    mostrar(LISTADO);
 }
 
 async function guardarVideo(video) {
@@ -53,7 +57,7 @@ function formulario2video() {
         .replace('https://youtube.com/watch?v=', '')
         .replace('https://youtu.be/', '')
         .replace('https://www.youtube.com/watch?v=', '');
-    
+
     return video;
 }
 
@@ -80,7 +84,7 @@ async function cargarVideos() {
     const tbody = document.querySelector('tbody');
 
     tbody.innerHTML = '';
-        
+
     videos.forEach(video => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -100,7 +104,7 @@ async function cargarVideos() {
         tbody.appendChild(tr);
     });
 
-    datatables = $('table').DataTable( {
+    datatables = $('table').DataTable({
         language: {
             url: '../json/es-ES.json'
         }
@@ -108,8 +112,8 @@ async function cargarVideos() {
 }
 
 async function editar(id) {
-    ocultar('table');
-    mostrar('form');
+    ocultar(LISTADO);
+    mostrar(FORMULARIO);
 
     const respuesta = await fetch(URL + id);
     const video = await respuesta.json();
@@ -124,12 +128,14 @@ function agregar() {
     document.querySelector('#titulo').value = '';
     document.querySelector('#url').value = '';
 
-    ocultar('table');
-    mostrar('form');
+    ocultar(LISTADO);
+    mostrar(FORMULARIO);
 }
 
 async function borrar(id) {
     const respuesta = await fetch(URL + id, { method: 'DELETE' });
+
+    console.log(respuesta);
 
     cargarVideos();
 }
