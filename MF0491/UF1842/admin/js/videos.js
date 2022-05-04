@@ -78,6 +78,9 @@ async function cargarVideos() {
                 <a href="https://www.youtube.com/watch?v=${video.url}" target="_blank">${video.url}</a>
             </td>
             <td>
+                <img src="http://i3.ytimg.com/vi/${video.url}/default.jpg" />
+            </td>
+            <td>
                 <a class="btn btn-primary btn-sm" href="javascript:editar(${video.id})">Editar</a>
                 <a class="btn btn-danger btn-sm" href="javascript:borrar(${video.id})">Borrar</a>
             </td>
