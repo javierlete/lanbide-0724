@@ -69,7 +69,11 @@ function formulario2video() {
 
 // video.url = video.url.match(regex)[2];
 
+let datatables;
+
 async function cargarVideos() {
+    datatables?.destroy();
+
     const respuesta = await fetch(URL);
     const videos = await respuesta.json();
 
@@ -94,6 +98,12 @@ async function cargarVideos() {
             </td>
         `;
         tbody.appendChild(tr);
+    });
+
+    datatables = $('table').DataTable( {
+        language: {
+            url: '../json/es-ES.json'
+        }
     });
 }
 
