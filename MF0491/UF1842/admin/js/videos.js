@@ -13,53 +13,61 @@ window.addEventListener('DOMContentLoaded', async function () {
 async function guardar(event) {
     event.preventDefault();
     
-    const form = document.querySelector('form');
-    const formData = new FormData(form);
+    const video = formulario2video();
 
-    console.log(formData);
-
-    const video = {};
-    
-    formData.forEach((value, key) => video[key] = value);
-    
-    if(video.id) {
-        video.id = +video.id;
-    } else {
-        delete video.id;
-    }
-
-    // Utilizamos los grupos de captura de las expresiones regulares
-    // Cada grupo se guarda en una posición del array
-    // Los grupos se capturan en el orden en el que se definen
-    // (?:) es una expresión regular que no captura nada
-    // const regex = /(https:\/\/youtu\.be\/|https:\/\/(?:www\.)?youtube\.com\/watch\?v=)([A-Za-z\d_-]+)/;
-
-    // console.log(video.url.match(regex)[0]);
-    // console.log(video.url.match(regex)[1]);
-    // console.log(video.url.match(regex)[2]);
-
-    // video.url = video.url.match(regex)[2];
-
-    video.url = video.url
-        .replace('https://youtube.com/watch?v=', '')
-        .replace('https://youtu.be/', '')
-        .replace('https://www.youtube.com/watch?v=', '');
-
-    console.log(video);
-
-    /*const response = await fetch(URL, {
-        method: 'POST',
-        body: JSON.stringify(video),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });*/
+    const response = await guardarVideo(video);
     
     cargarVideos();
     
     ocultar('form');
     mostrar('table');
 }
+
+async function guardarVideo(video) {
+    const url = URL + (video.id ?? '');
+    const method = video.id ? 'PUT' : 'POST';
+
+    return await fetch(url, {
+        method: method,
+        body: JSON.stringify(video),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+function formulario2video() {
+    const form = document.querySelector('form');
+    const formData = new FormData(form);
+    const video = {};
+
+    formData.forEach((value, key) => video[key] = value);
+
+    if (video.id) {
+        video.id = +video.id;
+    } else {
+        delete video.id;
+    }
+
+    video.url = video.url
+        .replace('https://youtube.com/watch?v=', '')
+        .replace('https://youtu.be/', '')
+        .replace('https://www.youtube.com/watch?v=', '');
+    
+    return video;
+}
+
+// Utilizamos los grupos de captura de las expresiones regulares
+// Cada grupo se guarda en una posición del array
+// Los grupos se capturan en el orden en el que se definen
+// (?:) es una expresión regular que no captura nada
+// const regex = /(https:\/\/youtu\.be\/|https:\/\/(?:www\.)?youtube\.com\/watch\?v=)([A-Za-z\d_-]+)/;
+
+// console.log(video.url.match(regex)[0]);
+// console.log(video.url.match(regex)[1]);
+// console.log(video.url.match(regex)[2]);
+
+// video.url = video.url.match(regex)[2];
 
 async function cargarVideos() {
     const respuesta = await fetch(URL);
@@ -108,6 +116,12 @@ function agregar() {
 
     ocultar('table');
     mostrar('form');
+}
+
+async function borrar(id) {
+    const respuesta = await fetch(URL + id, { method: 'DELETE' });
+
+    cargarVideos();
 }
 
 function ocultar(selector) {
