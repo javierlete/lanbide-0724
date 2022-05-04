@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/datatables.min.css">
+    <script src="../js/bootstrap-components.js"></script>
     <script src="../js/datatables.min.js"></script>
     <script src="js/videos.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
     <!-- FOOTER ABAJO SIEMPRE -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">VideosApp</a>
@@ -68,31 +70,11 @@
         <div id="video">
             <h2>Edición de video</h2>
             <form>
-                <div class="row mb-3">
-                    <label for="id" class="col-sm-2 col-form-label">Id</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" id="id" name="id" readonly>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="titulo" class="col-sm-2 col-form-label">Título</label>
-                    <div class="col-sm-10">
-                        <input required type="text" class="form-control" id="titulo" name="titulo">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="url" class="col-sm-2 col-form-label">Url</label>
-                    <div class="col-sm-10">
-                        <input required
-                            pattern="(https:\/\/youtu\.be\/|https:\/\/(www\.)?youtube\.com\/watch\?v=)[A-Za-z\d_-]+"
-                            type="url" class="form-control" id="url" name="url">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
+                <label-text id="id" tipo="number" sololectura></label-text>
+                <label-text id="titulo" tipo="text" requerido></label-text>
+                <label-text id="url" tipo="text" requerido patron="(https:\/\/youtu\.be\/|https:\/\/(www\.)?youtube\.com\/watch\?v=)[A-Za-z\d_-]+"></label-text>
+                
+                <boton-guardar></boton-guardar>
             </form>
         </div>
     </main>
