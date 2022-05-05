@@ -1,6 +1,6 @@
 'use strict';
 
-const e = React.createElement;
+// const e = React.createElement;
 
 class LikeButton extends React.Component {
     constructor(props) {
@@ -13,15 +13,22 @@ class LikeButton extends React.Component {
             return 'You liked this.';
         }
 
-        return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
+        // Muestra un <button> que contenga "Like"
+        return (
+            <button onClick={() => this.setState({ liked: true })}>
+                Like
+            </button>
         );
+
+        // return e(
+        //     'button',
+        //     { onClick: () => this.setState({ liked: true }) },
+        //     'Like'
+        // );
     }
 }
 
 const domContainer = document.querySelector('#like_button_container');
 const root = ReactDOM.createRoot(domContainer);
-root.render(e(LikeButton));
-
+root.render(<LikeButton />);
+// root.render(e(LikeButton));
