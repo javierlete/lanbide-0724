@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+
 import './App.css';
 import Cabecera from './Cabecera';
 import Pie from './Pie';
