@@ -2,10 +2,18 @@ package com.ipartek.formacion.l0724.mf0492.uf1844;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.Vector;
 
 /**
  * Clase para demostrar la sintaxis de Java
@@ -24,40 +32,102 @@ public class Sintaxis {
 //		tipos();
 //		operadores();
 //		estructurasDeControl();
-		arrays();
+//		arrays();
+		colecciones();
 	}
 
+	@SuppressWarnings({ "unchecked", "removal" })
+	private static void colecciones() {
+		// < Java5
+		@SuppressWarnings("rawtypes")
+		Vector v = new Vector();
+
+		v.add(new Integer(5));
+		v.add(new Date());
+		v.add("Lalaralalaaa");
+
+		for (int i = 0; i < v.size(); i++) {
+			if (i == 2) {
+				String s = (String) v.elementAt(i);
+				System.out.println(s.toUpperCase());
+			}
+
+			System.out.println(v.elementAt(i));
+		}
+
+		// >= Java 5
+		List<Integer> al = new ArrayList<Integer>(); // Java 8 -> new ArrayList<>();
+
+		al.add(6);
+		al.add(10);
+		al.add(14);
+		al.add(6);
+
+		al.remove(1);
+		
+		for (Integer i : al) {
+			System.out.println(i);
+		}
+	
+		// Java 10 var hs = new HashSet<String>();
+		Set<String> hs = new HashSet<String>();
+		
+		hs.add("Uno");
+		hs.add("Dos");
+		hs.add("Uno");
+		hs.add("Tres");
+		
+		for(String s: hs) {
+			System.out.println(s);
+		}
+		
+		Map<String, LocalDate> tm = new TreeMap<String, LocalDate>();
+		
+		// Coloca un elemento en una posición
+		// Si en dicha posición ya había un elemento previo
+		// machaca el anterior
+		tm.put("Principio curso", LocalDate.of(2022, 3, 28));
+		tm.put("Fin curso", LocalDate.of(2022, 9, 8));
+		
+		for(String clave: tm.keySet()) {
+			System.out.println("La clave " + clave + " tiene el valor " + tm.get(clave) + ".");
+			System.out.println(String.format("La clave %s tiene el valor %2$te de %2$tB de %2$tY.", clave, tm.get(clave)));
+			System.out.printf("La clave %s tiene el valor %2$te de %2$tB de %2$tY.\n", clave, tm.get(clave));
+		}
+	}
+
+	@SuppressWarnings("unused")
 	private static void arrays() {
 		int[] arr;
 		arr = new int[2];
-		
+
 		arr[0] = 10;
 		arr[1] = 3;
 		// arr[2] = 20; // No me lo permite en ejecución
-		
-		for(int i = 0; i < arr.length; i++) {
+
+		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-		
-		for(int dato: arr) {
+
+		for (int dato : arr) {
 			System.out.println(dato);
 		}
-		
+
 		char[][] tablero = new char[8][8];
-		
+
 		tablero[0][0] = 'T';
 		tablero[0][1] = 'C';
 		tablero[1][0] = 'P';
-		
+
 		tablero[7][7] = 't';
-		
+
 		char ficha;
-		
-		for(int x = 0; x < tablero.length; x++) {
-			for(int y = 0; y < tablero[x].length; y++) {
+
+		for (int x = 0; x < tablero.length; x++) {
+			for (int y = 0; y < tablero[x].length; y++) {
 				ficha = tablero[x][y];
-				
-				if(ficha == '\0') {
+
+				if (ficha == '\0') {
 					ficha = '.';
 				}
 				// print no hace salto de línea como println
@@ -65,22 +135,16 @@ public class Sintaxis {
 			}
 			System.out.println();
 		}
-		
-		arr = new int[]{ 1, 3, 5, 7, 3, 2, 3 };
-		
-		tablero  = new char[][] {
-			{ 'T', 'C', '.', '.', '.', '.', '.', '.' },
-			{ 'P', '.', '.', '.', '.', '.', '.', '.' },
-			{ '.', '.', '.', '.', '.', '.', '.', '.' },
-			{ '.', '.', '.', '.', '.', '.', '.', '.' },
-			{ '.', '.', '.', '.', '.', '.', '.', '.' },
-			{ '.', '.', '.', '.', '.', '.', '.', '.' },
-			{ '.', '.', '.', '.', '.', 'p', '.', '.' },
-			{ '.', '.', '.', '.', '.', '.', 'c', 't' },
-		};
-		
-		for(char[] fila: tablero) {
-			for(char f: fila) {
+
+		arr = new int[] { 1, 3, 5, 7, 3, 2, 3 };
+
+		tablero = new char[][] { { 'T', 'C', '.', '.', '.', '.', '.', '.' }, { 'P', '.', '.', '.', '.', '.', '.', '.' },
+				{ '.', '.', '.', '.', '.', '.', '.', '.' }, { '.', '.', '.', '.', '.', '.', '.', '.' },
+				{ '.', '.', '.', '.', '.', '.', '.', '.' }, { '.', '.', '.', '.', '.', '.', '.', '.' },
+				{ '.', '.', '.', '.', '.', 'p', '.', '.' }, { '.', '.', '.', '.', '.', '.', 'c', 't' }, };
+
+		for (char[] fila : tablero) {
+			for (char f : fila) {
 				System.out.print(f + " ");
 			}
 			System.out.println();
@@ -113,25 +177,25 @@ public class Sintaxis {
 		default:
 			System.out.println("No reconocida");
 		}
-		
+
 		// REPETITIVAS
-		
+
 		int c = 1;
-		
-		while(c <= 5) {
+
+		while (c <= 5) {
 			System.out.println(c++);
 		}
-		
+
 		c = 1;
-		
+
 		do {
 			System.out.println(c++);
-		} while(c <= 5);
-		
-		for(int i = 1; i <= 5; i++) {
+		} while (c <= 5);
+
+		for (int i = 1; i <= 5; i++) {
 			System.out.println(i);
 		}
-		
+
 //		int i = 1;
 //		while(i <= 5) {
 //			System.out.println(i);
