@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -33,10 +34,54 @@ public class Sintaxis {
 //		operadores();
 //		estructurasDeControl();
 //		arrays();
-		colecciones();
+//		colecciones();
+		conversiones();
 	}
 
-	@SuppressWarnings({ "unchecked", "removal" })
+	private static void conversiones() {
+		// Conversiones entre tipos primitivos
+		int i = 5;
+		double d = (double)i;
+		i = (int)d;
+		
+		// Conversión a texto de tipo primitivo
+		String s = String.valueOf(i);
+		
+		// Conversión de un objeto (que no sea primitivo) a texto
+		LocalDate ld = LocalDate.now();
+		s = ld.toString(); // .toString()
+		
+		// Conversión de String a tipo primitivo
+		s = "5";
+		
+		i = Integer.parseInt(s);
+		
+		s = "NO";
+		
+		@SuppressWarnings("unused")
+		boolean b = "SI".equalsIgnoreCase(s.trim());
+		
+		@SuppressWarnings("unused")
+		char c = s.trim().charAt(0);
+		
+		// Conversión de String a LocalDate
+		s = "2020-10-20";
+		
+		ld = LocalDate.parse(s);
+		
+		System.out.println(ld.getYear());
+		
+		s = "01/10/2020";
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		ld = LocalDate.parse(s, dtf);
+		
+		DateTimeFormatter formatoLargo = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
+		System.out.println(ld.format(formatoLargo));
+	}
+
+	@SuppressWarnings({ "unchecked", "removal", "unused" })
 	private static void colecciones() {
 		// < Java5
 		@SuppressWarnings("rawtypes")
