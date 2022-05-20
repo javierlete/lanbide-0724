@@ -35,48 +35,85 @@ public class Sintaxis {
 //		estructurasDeControl();
 //		arrays();
 //		colecciones();
-		conversiones();
+//		conversiones();
+		excepciones();
 	}
 
+	@SuppressWarnings("null")
+	private static void excepciones() {
+		int d, a = 5, b = 2;
+
+		System.out.println("Vamos a hacer una división");
+
+		try {
+			String s = null;
+
+			s.toUpperCase();
+
+			int[] arr = new int[2];
+
+			arr[2] = 5;
+
+			b = 2;
+
+			d = a / b;
+
+			System.out.println(d);
+		} catch (ArithmeticException e) {
+			System.out.println("Error en la división");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Se nos ha escapado el dato de rango");
+		} finally {
+			System.out.println("Me vas a ver por mis...");
+		}
+//		catch (Exception e) {
+//			System.out.println("Error no esperado");
+//			System.out.println(e.getMessage());
+//		}
+//		
+		System.out.println("Gracias por su atención");
+	}
+
+	@SuppressWarnings("unused")
 	private static void conversiones() {
 		// Conversiones entre tipos primitivos
 		int i = 5;
-		double d = (double)i;
-		i = (int)d;
-		
+		double d = (double) i;
+		i = (int) d;
+
 		// Conversión a texto de tipo primitivo
 		String s = String.valueOf(i);
-		
+
 		// Conversión de un objeto (que no sea primitivo) a texto
 		LocalDate ld = LocalDate.now();
 		s = ld.toString(); // .toString()
-		
+
 		// Conversión de String a tipo primitivo
 		s = "5";
-		
+
 		i = Integer.parseInt(s);
-		
+
 		s = "NO";
-		
+
 		@SuppressWarnings("unused")
 		boolean b = "SI".equalsIgnoreCase(s.trim());
-		
+
 		@SuppressWarnings("unused")
 		char c = s.trim().charAt(0);
-		
+
 		// Conversión de String a LocalDate
 		s = "2020-10-20";
-		
+
 		ld = LocalDate.parse(s);
-		
+
 		System.out.println(ld.getYear());
-		
+
 		s = "01/10/2020";
-		
+
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		
+
 		ld = LocalDate.parse(s, dtf);
-		
+
 		DateTimeFormatter formatoLargo = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
 		System.out.println(ld.format(formatoLargo));
 	}
@@ -109,34 +146,35 @@ public class Sintaxis {
 		al.add(6);
 
 		al.remove(1);
-		
+
 		for (Integer i : al) {
 			System.out.println(i);
 		}
-	
+
 		// Java 10 var hs = new HashSet<String>();
 		Set<String> hs = new HashSet<String>();
-		
+
 		hs.add("Uno");
 		hs.add("Dos");
 		hs.add("Uno");
 		hs.add("Tres");
-		
-		for(String s: hs) {
+
+		for (String s : hs) {
 			System.out.println(s);
 		}
-		
+
 		Map<String, LocalDate> tm = new TreeMap<String, LocalDate>();
-		
+
 		// Coloca un elemento en una posición
 		// Si en dicha posición ya había un elemento previo
 		// machaca el anterior
 		tm.put("Principio curso", LocalDate.of(2022, 3, 28));
 		tm.put("Fin curso", LocalDate.of(2022, 9, 8));
-		
-		for(String clave: tm.keySet()) {
+
+		for (String clave : tm.keySet()) {
 			System.out.println("La clave " + clave + " tiene el valor " + tm.get(clave) + ".");
-			System.out.println(String.format("La clave %s tiene el valor %2$te de %2$tB de %2$tY.", clave, tm.get(clave)));
+			System.out.println(
+					String.format("La clave %s tiene el valor %2$te de %2$tB de %2$tY.", clave, tm.get(clave)));
 			System.out.printf("La clave %s tiene el valor %2$te de %2$tB de %2$tY.\n", clave, tm.get(clave));
 		}
 	}
