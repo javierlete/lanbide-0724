@@ -9,6 +9,16 @@ public class Espacio {
 	private String nombre;
 	private Set<Persona> personas = new HashSet<>();
 
+	// Constructor de copia
+	// Siempre suele ser superficial
+	// La colección de personas por ejemplo se comparte entre los
+	// dos objetos
+	public Espacio(Espacio espacio) {
+		setId(espacio.getId());
+		setNombre(espacio.getNombre());
+		setPersonas(espacio.getPersonas());
+	}
+	
 	public Espacio(String nombre) {
 		setNombre(nombre);
 	}
@@ -31,6 +41,10 @@ public class Espacio {
 
 	public Set<Persona> getPersonas() {
 		return personas;
+	}
+
+	private void setPersonas(Set<Persona> personas) {
+		this.personas = personas;
 	}
 
 	public void entrar(Persona persona) {

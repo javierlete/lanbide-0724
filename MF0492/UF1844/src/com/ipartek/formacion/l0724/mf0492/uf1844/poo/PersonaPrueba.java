@@ -36,6 +36,13 @@ public class PersonaPrueba {
 		System.out.println(p6.getNombreCompleto());
 		
 		System.out.println(p6.getNombreCompleto(Persona.CON_COMA));
+		
+		Persona p7 = new Persona(p6);
+
+		p6.setNombre("Cambiado");
+		
+		System.out.println(p6.getNombreCompleto());
+		System.out.println(p7.getNombreCompleto());
 	}
 
 }

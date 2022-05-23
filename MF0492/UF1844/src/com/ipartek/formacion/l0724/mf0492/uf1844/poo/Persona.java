@@ -8,6 +8,11 @@ public class Persona {
 	private String nombre;
 	private String apellido;
 	
+	// Constructor de copia
+	public Persona(Persona persona) {
+		this(persona.getId(), persona.getNombre(), persona.getApellido());
+	}
+	
 	// Source/Generate constructor using Fields...
 	public Persona(Long id, String nombre, String apellido) {
 		// Llamamos a los setters
