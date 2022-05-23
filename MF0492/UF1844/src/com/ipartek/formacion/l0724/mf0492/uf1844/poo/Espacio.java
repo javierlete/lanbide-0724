@@ -54,4 +54,11 @@ public class Espacio {
 	public void salir(Persona persona) {
 		personas.remove(persona);
 	}
+
+	@Override
+	public String toString() {
+		return "Espacio [id=" + id + ", nombre=" + nombre + "]";
+	}
+	
+	
 }

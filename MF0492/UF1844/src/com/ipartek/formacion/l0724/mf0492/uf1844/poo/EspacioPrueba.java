@@ -19,8 +19,9 @@ public class EspacioPrueba {
 		espacio.salir(persona);
 		
 		for(Persona p: espacio.getPersonas()) {
-			System.out.println(p.getNombreCompleto());
+			System.out.println(p);
 		}
 		
+		System.out.println(espacio);
 	}
 }

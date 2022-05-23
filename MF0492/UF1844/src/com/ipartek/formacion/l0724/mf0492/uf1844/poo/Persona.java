@@ -75,4 +75,15 @@ public class Persona {
 			return getNombreCompleto();
 		}
 	}
+
+	
+
+	// Source/Generate toString()...
+	
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
+	
 }
