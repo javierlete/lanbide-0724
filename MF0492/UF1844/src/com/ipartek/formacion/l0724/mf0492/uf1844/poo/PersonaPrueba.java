@@ -43,6 +43,26 @@ public class PersonaPrueba {
 		
 		System.out.println(p6.getNombreCompleto());
 		System.out.println(p7.getNombreCompleto());
+		
+		p7 = null;
+		
+		System.out.println(Persona.getNumeroPersonas());
+		
+		System.gc();
+		
+		System.out.println(Persona.getNumeroPersonas());
+		
+		Persona.setAnonimo("Juan Nadie");
+		
+		Persona p8 = new Persona();
+		
+		System.out.println(p8);
+		
+		Persona.setAnonimo("Ni su madre le conoce");
+		
+		Persona p9 = new Persona();
+		
+		System.out.println(p9);
 	}
 
 }

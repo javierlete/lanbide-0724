@@ -3,6 +3,11 @@ package com.ipartek.formacion.l0724.mf0492.uf1844.poo;
 public class Persona {
 	// Constantes
 	public static final boolean CON_COMA = true;
+	
+	// Variable estática
+	private static int numeroPersonas = 0;
+	private static String anonimo = "ANÓNIMO";
+	
 	// Variables de instancia (privadas)
 	private Long id;
 	private String nombre;
@@ -19,6 +24,8 @@ public class Persona {
 		setId(id);
 		setNombre(nombre);
 		setApellido(apellido);
+		
+		numeroPersonas++;
 	}
 	
 	public Persona(String nombre, String apellido) {
@@ -31,9 +38,14 @@ public class Persona {
 	
 	public Persona() {
 		// Usamos null "Anónimo" y null como valores por defecto
-		this(null, "Anónimo", null);
+		this(null, anonimo, null);
 	}
 
+	// Destructor
+	protected void finalize() {
+		numeroPersonas--;
+	}
+	
 	// Source/Generate getters y setters...
 	public Long getId() {
 		return id;
@@ -63,6 +75,18 @@ public class Persona {
 		this.apellido = apellido;
 	}
 	
+	public static String getAnonimo() {
+		return anonimo;
+	}
+
+	public static void setAnonimo(String anonimo) {
+		Persona.anonimo = anonimo;
+	}
+	
+	public static int getNumeroPersonas() {
+		return numeroPersonas;
+	}
+
 	// Métodos de instancia
 	public String getNombreCompleto() {
 		return String.format("%s %s", nombre, apellido);
@@ -79,7 +103,6 @@ public class Persona {
 	
 
 	// Source/Generate toString()...
-	
 	@Override
 	public String toString() {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
