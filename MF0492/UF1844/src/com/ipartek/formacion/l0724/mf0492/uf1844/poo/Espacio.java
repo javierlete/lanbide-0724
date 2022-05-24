@@ -16,7 +16,12 @@ public class Espacio {
 	public Espacio(Espacio espacio) {
 		setId(espacio.getId());
 		setNombre(espacio.getNombre());
-		setPersonas(espacio.getPersonas());
+		
+		Set<Persona> copia = new HashSet<>();
+		
+		copia.addAll(espacio.getPersonas());
+		
+		setPersonas(copia);
 	}
 	
 	public Espacio(String nombre) {

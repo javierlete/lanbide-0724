@@ -12,6 +12,8 @@ public class EspacioPrueba {
 		espacio.entrar(persona);
 		espacio.entrar(persona);
 		
+		Espacio espacio2 = new Espacio(espacio);
+		
 		for(Persona p: espacio.getPersonas()) {
 			System.out.println(p.getNombreCompleto());
 		}
@@ -23,5 +25,9 @@ public class EspacioPrueba {
 		}
 		
 		System.out.println(espacio);
+		
+		for(Persona p: espacio2.getPersonas()) {
+			System.out.println(p);
+		}
 	}
 }
