@@ -1,5 +1,7 @@
 package com.ipartek.formacion.l0724.mf0492.uf1844.poo;
 
+import java.util.Objects;
+
 public class Persona {
 	// Constantes
 	public static final boolean CON_COMA = true;
@@ -101,6 +103,29 @@ public class Persona {
 	}
 
 	
+
+	// Source/Generate hashCode() and equals()
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellido, id, nombre);
+	}
+
+	// Necesario para que las comparaciones entre dos Persona's
+	// se hagan por contenido y no sólo por que sean la misma
+	
+	// Source/Generate hashCode() and equals()
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(apellido, other.apellido) && Objects.equals(id, other.id)
+				&& Objects.equals(nombre, other.nombre);
+	}
 
 	// Source/Generate toString()...
 	@Override
