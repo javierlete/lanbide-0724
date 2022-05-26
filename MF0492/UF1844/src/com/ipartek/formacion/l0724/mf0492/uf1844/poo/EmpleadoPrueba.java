@@ -16,6 +16,10 @@ public class EmpleadoPrueba {
 		System.out.println(e.getNombreCompleto(Persona.CON_COMA));
 		
 		System.out.println(e.getNif());
+		
+		Empleado e2 = new Empleado("Empleado", "Empleadez", "87654321Z");
+		
+		System.out.println(e.equals(e2));
 	}
 
 }

@@ -41,6 +41,7 @@ public class EjemplosHerencia {
 		
 		System.out.println(o.getClass().getName());
 		System.out.println(o.hashCode());
+		System.out.println("Tipo Object, pero apuntando a Empleado: " + o);
 		
 		o = new Object();
 		
