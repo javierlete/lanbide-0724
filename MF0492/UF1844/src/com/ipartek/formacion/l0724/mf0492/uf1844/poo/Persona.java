@@ -54,7 +54,7 @@ public class Persona {
 	}
 	public void setId(Long id) {
 		if(id != null && id <= 0) {
-			throw new RuntimeException("El id debe ser un número mayor o igual que 1");
+			throw new EntidadesException("El id debe ser un número mayor o igual que 1");
 		}
 		this.id = id;
 	}
@@ -63,7 +63,7 @@ public class Persona {
 	}
 	public void setNombre(String nombre) {
 		if(nombre == null || nombre.trim().length() < 3) {
-			throw new RuntimeException("El nombre debe tener 3 caracteres o más");
+			throw new EntidadesException("El nombre debe tener 3 caracteres o más");
 		}
 		this.nombre = nombre;
 	}
@@ -72,7 +72,7 @@ public class Persona {
 	}
 	public void setApellido(String apellido) {
 		if(apellido != null && apellido.trim().length() < 3) {
-			throw new RuntimeException("El apellido debe tener 3 caracteres o más");
+			throw new EntidadesException("El apellido debe tener 3 caracteres o más");
 		}
 		this.apellido = apellido;
 	}
