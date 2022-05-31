@@ -1,8 +1,9 @@
 package com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.presentacion;
 
-import static com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.bibliotecas.Consola.errorPl;
-import static com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.bibliotecas.Consola.pedirInt;
-import static com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.bibliotecas.Consola.pl;
+import static com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.bibliotecas.Consola.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.accesodatos.DaoEmpleado;
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.accesodatos.DaoEmpleadoMemoria;
@@ -10,7 +11,7 @@ import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.entidades.Empleado;
 
 public class PresentacionConsola {
 	private static final DaoEmpleado DAO = DaoEmpleadoMemoria.getInstancia();
-	
+
 	public static void main(String[] args) {
 		int opcion;
 
@@ -40,16 +41,16 @@ public class PresentacionConsola {
 			mostrarTodos();
 			break;
 		case 2:
-			pl("Buscar por id");
+			buscarPorId();
 			break;
 		case 3:
-			pl("Insertar");
+			insertar();
 			break;
 		case 4:
-			pl("Modificar");
+			modificar();
 			break;
 		case 5:
-			pl("Borrar");
+			borrar();
 			break;
 		case 0:
 			pl("Gracias por utilizar la aplicación");
@@ -60,12 +61,79 @@ public class PresentacionConsola {
 	}
 
 	private static void mostrarTodos() {
-		for(Empleado e: DAO.obtenerTodos()) {
+		for (Empleado e : DAO.obtenerTodos()) {
 			mostrarLinea(e);
 		}
 	}
 
-	private static void mostrarLinea(Empleado e) {
-		pl(e);
+	private static void buscarPorId() {
+		long id = pedirLong("Dime el id a buscar");
+		Empleado empleado = DAO.obtenerPorId(id);
+		mostrarFicha(empleado);
 	}
+
+	private static void insertar() {
+		String nombre = pedirString("Nombre");
+		String nif = pedirString("NIF");
+		LocalDate fechaNacimiento = pedirLocalDate("Fecha de nacimiento");
+		BigDecimal sueldo = pedirBigDecimal("Sueldo");
+
+		Empleado empleado = new Empleado(null, nif, nombre, fechaNacimiento, sueldo);
+
+		DAO.insertar(empleado);
+	}
+
+	private static void modificar() {
+		Long id = pedirLong("Id");
+		String nombre = pedirString("Nombre");
+		String nif = pedirString("NIF");
+		LocalDate fechaNacimiento = pedirLocalDate("Fecha de nacimiento");
+		BigDecimal sueldo = pedirBigDecimal("Sueldo");
+
+		Empleado empleado = new Empleado(id, nif, nombre, fechaNacimiento, sueldo);
+
+		DAO.modificar(empleado);
+	}
+
+	private static void borrar() {
+		long id = pedirLong("Dime el id a borrar");
+		DAO.borrar(id);
+	}
+
+	private static void mostrarFicha(Empleado empleado) {
+		pl(empleado);
+	}
+
+	private static void mostrarLinea(Empleado empleado) {
+		pl(empleado);
+	}
+
+//	private static void modificar() {
+	// Empleado empleado = pedirDatosEmpleado(true);
+	//
+	// DAO.modificar(empleado);
+	// }
+	//
+	// private static void insertar() {
+	// Empleado empleado = pedirDatosEmpleado(false);
+	//
+	// DAO.insertar(empleado);
+	// }
+	//
+	// private static Empleado pedirDatosEmpleado(boolean conId) {
+	// Long id = null;
+	//
+	// if(conId) {
+	// id = pedirLong("Id");
+	// }
+	//
+	// String nombre = pedirString("Nombre");
+	// String nif = pedirString("NIF");
+	// LocalDate fechaNacimiento = pedirLocalDate("Fecha de nacimiento");
+	// BigDecimal sueldo = pedirBigDecimal("Sueldo");
+	//
+	// Empleado empleado = new Empleado(id, nif, nombre, fechaNacimiento, sueldo);
+	//
+	// return empleado;
+	// }
 }
