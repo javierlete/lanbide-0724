@@ -106,6 +106,11 @@ public class PresentacionConsola {
 	}
 
 	private static void mostrarFicha(Empleado empleado) {
+		if(empleado == null) {
+			pl("No existe ese empleado");
+			return;
+		}
+		
 		pl(empleado);
 	}
 
