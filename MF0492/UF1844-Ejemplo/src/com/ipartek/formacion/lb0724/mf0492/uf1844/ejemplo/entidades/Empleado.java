@@ -24,6 +24,10 @@ public class Empleado {
 		setSueldo(sueldo);
 	}
 
+	public Empleado() {
+		
+	}
+
 	// 2. Getters y setters
 	public Long getId() {
 		return id;

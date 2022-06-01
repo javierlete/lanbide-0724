@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.accesodatos.DaoEmpleado;
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.accesodatos.DaoEmpleadoMemoria;
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.entidades.Empleado;
+import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.entidades.EntidadesException;
 
 public class PresentacionConsola {
 	private static final DaoEmpleado DAO = DaoEmpleadoMemoria.getInstancia();
@@ -78,12 +79,24 @@ public class PresentacionConsola {
 	}
 
 	private static void insertar() {
-		String nombre = pedirString("Nombre");
-		String nif = pedirString("NIF");
-		LocalDate fechaNacimiento = pedirLocalDate("Fecha de nacimiento");
-		BigDecimal sueldo = pedirBigDecimal("Sueldo");
+		Empleado empleado = new Empleado();
+		
+		boolean repetir = true;
+		
+		do {
+			try {
+				empleado.setNombre(pedirString("Nombre"));
+				repetir = false;
+			} catch (EntidadesException e) {
+				pl(e.getMessage());
+			} 
+		} while (repetir);
+		
+		empleado.setNif(pedirString("NIF"));
+		empleado.setFechaNacimiento(pedirLocalDate("Fecha de nacimiento"));
+		empleado.setSueldo(pedirBigDecimal("Sueldo"));
 
-		Empleado empleado = new Empleado(null, nif, nombre, fechaNacimiento, sueldo);
+		// Empleado empleado = new Empleado(null, nif, nombre, fechaNacimiento, sueldo);
 
 		DAO.insertar(empleado);
 	}
