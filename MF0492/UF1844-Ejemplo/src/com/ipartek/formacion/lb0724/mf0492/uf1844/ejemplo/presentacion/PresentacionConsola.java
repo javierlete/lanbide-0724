@@ -12,7 +12,12 @@ import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.entidades.Empleado;
 public class PresentacionConsola {
 	private static final DaoEmpleado DAO = DaoEmpleadoMemoria.getInstancia();
 
+//	private static final Logger LOGGER = Logger.getLogger(PresentacionConsola.class.getName());
+	
 	public static void main(String[] args) {
+//		LOGGER.severe("Se ha iniciado el programa"); // Level.SEVERE
+//		LOGGER.log(Level.SEVERE, "Fallo del programa", new RuntimeException("Fallo"));
+		
 		int opcion;
 
 		do {
