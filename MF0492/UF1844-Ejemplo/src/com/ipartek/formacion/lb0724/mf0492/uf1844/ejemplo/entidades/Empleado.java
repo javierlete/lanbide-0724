@@ -74,7 +74,7 @@ public class Empleado {
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		if (fechaNacimiento == null || fechaNacimiento.isAfter(LocalDate.now().minusYears(18))
 				|| fechaNacimiento.isBefore(LocalDate.of(1900, 1, 1))) {
-			throw new EntidadesException("La fecha de nacimiento debe estar comprendida entre 1900 y la fecha actual");
+			throw new EntidadesException("La fecha de nacimiento debe ser posterior a 1900 y debe ser mayor de 18 años");
 		}
 		
 		this.fechaNacimiento = fechaNacimiento;

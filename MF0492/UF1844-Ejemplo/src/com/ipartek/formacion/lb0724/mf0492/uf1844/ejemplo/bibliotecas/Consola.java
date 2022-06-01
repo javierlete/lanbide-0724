@@ -27,7 +27,7 @@ public class Consola {
 
 		do {
 			try {
-				texto = pedirString(mensaje);
+				texto = pedirString(mensaje + " (AAAA-MM-DD)");
 				
 				if (texto == null || texto.trim().length() == 0) {
 					return null;
