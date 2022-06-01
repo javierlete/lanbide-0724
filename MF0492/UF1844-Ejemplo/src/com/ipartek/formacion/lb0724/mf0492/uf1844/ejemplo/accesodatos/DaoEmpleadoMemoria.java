@@ -12,8 +12,8 @@ public class DaoEmpleadoMemoria implements DaoEmpleado {
 
 	static {
 		empleados.put(1L, new Empleado(1L, "12345678Z", "Javier", LocalDate.of(2000, 1, 2), new BigDecimal("12345")));
-		empleados.put(2L, new Empleado(2L, "22345678Z", "Nombre2", LocalDate.of(2001, 1, 2), new BigDecimal("22345")));
-		empleados.put(3L, new Empleado(3L, "32345678Z", "Nombre3", LocalDate.of(2002, 1, 2), new BigDecimal("32345")));
+		empleados.put(2L, new Empleado(2L, "12345678Z", "Nombre2", LocalDate.of(2001, 1, 2), new BigDecimal("22345")));
+		empleados.put(3L, new Empleado(3L, "12345678Z", "Nombre3", LocalDate.of(2002, 1, 2), new BigDecimal("32345")));
 	}
 
 	// SINGLETON
