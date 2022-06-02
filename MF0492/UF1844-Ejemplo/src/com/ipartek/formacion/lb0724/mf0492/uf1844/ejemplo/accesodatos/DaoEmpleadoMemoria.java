@@ -6,6 +6,9 @@ import java.util.TreeMap;
 
 import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.entidades.Empleado;
 
+// Implementación concreta de las operaciones de un Empleado
+// basada en un almacenamiento en memoria
+// "Como si fuera un driver del DAO"
 public class DaoEmpleadoMemoria implements DaoEmpleado {
 
 	private static final TreeMap<Long, Empleado> empleados = new TreeMap<>();
@@ -17,11 +20,21 @@ public class DaoEmpleadoMemoria implements DaoEmpleado {
 	}
 
 	// SINGLETON
+	//
+	// Vamos a hacer que sólo se pueda crear UN (single) objeto DaoEmpleadoMemoria
+	// porque no tiene sentido crear varios objetos que hacen exactamente lo mismo
+	// Sólo gastarían más memoria
+	
+	// Al hacer el constructor por defecto privado, ya cerramos la posibilidad de
+	// que ningún programa pueda hacer un new de esta clase
 	private DaoEmpleadoMemoria() {
 	}
 
+	// Creamos UNA sola instancia de este objeto dentro de esta clase
 	private static final DaoEmpleadoMemoria INSTANCIA = new DaoEmpleadoMemoria();
 
+	// Damos acceso a recuperar la instancia desde fuera desde un método estático
+	// ya que no se puede acceder a otros sin tener previamente la propia instancia
 	public static DaoEmpleadoMemoria getInstancia() {
 		return INSTANCIA;
 	}
