@@ -8,8 +8,16 @@ import java.util.Scanner;
 public class Consola {
 	private static final Scanner sc = new Scanner(System.in);
 
+	public static void pf(String formato, Object... objects) {
+		System.out.printf(formato, objects);
+	}
+
 	public static void pl(Object o) {
 		System.out.println(o);
+	}
+	
+	public static void pl() {
+		System.out.println();
 	}
 
 	public static void p(Object o) {
@@ -28,11 +36,11 @@ public class Consola {
 		do {
 			try {
 				texto = pedirString(mensaje + " (AAAA-MM-DD)");
-				
+
 				if (texto == null || texto.trim().length() == 0) {
 					return null;
 				}
-				
+
 				ld = LocalDate.parse(texto);
 				repetir = false;
 			} catch (DateTimeParseException e) {
@@ -51,11 +59,11 @@ public class Consola {
 		do {
 			try {
 				texto = pedirString(mensaje);
-				
+
 				if (texto == null || texto.trim().length() == 0) {
 					return null;
 				}
-				
+
 				bd = new BigDecimal(texto);
 				repetir = false;
 			} catch (NumberFormatException e) {
@@ -64,7 +72,7 @@ public class Consola {
 		} while (repetir);
 
 		return bd;
-		
+
 //		p(mensaje + ": ");
 //		return new BigDecimal(sc.nextLine());
 	}

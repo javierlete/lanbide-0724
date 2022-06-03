@@ -8,11 +8,11 @@ import com.ipartek.formacion.lb0724.mf0492.uf1844.ejemplo.bibliotecas.Validacion
 
 public class Empleado {
 	// 1. Variables de instancia (privadas)
-	private Long id;
-	private String nif;
-	private String nombre;
-	private LocalDate fechaNacimiento;
-	private BigDecimal sueldo;
+	private Long id; // 19 caracteres + 6 puntos
+	private String nif; // 9 caracteres
+	private String nombre; // 70 caracteres
+	private LocalDate fechaNacimiento; // 10 caracteres
+	private BigDecimal sueldo; // 7 digitos + 2 puntos
 
 	// 3. Constructor "mayor"
 	public Empleado(Long id, String nif, String nombre, LocalDate fechaNacimiento, BigDecimal sueldo) {

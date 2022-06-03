@@ -72,9 +72,15 @@ public class PresentacionConsola {
 	}
 
 	private static void mostrarTodos() {
+		pl();
+		
+		cabeceraListado();
+		
 		for (Empleado e : DAO.obtenerTodos()) {
 			mostrarLinea(e);
 		}
+		
+		pl();
 	}
 
 	private static void buscarPorId() {
@@ -129,7 +135,7 @@ public class PresentacionConsola {
 				pl(e.getMessage());
 			}
 		} while (repetir);
-		
+
 		// Empleado empleado = new Empleado(null, nif, nombre, fechaNacimiento, sueldo);
 
 		DAO.insertar(empleado);
@@ -140,7 +146,7 @@ public class PresentacionConsola {
 	private interface PedirDato {
 		void pedir();
 	}
-	
+
 //	private static class PedirId implements PedirDato {
 //
 //		private Empleado empleado;
@@ -154,7 +160,7 @@ public class PresentacionConsola {
 //			empleado.setId(pedirLong("Id"));
 //		}
 //	}
-	
+
 	// Este método aprovecha el interface anterior para definir el código general
 	// e incrustar el código concreto en la parte que le corresponde
 	private static void validarPeticion(PedirDato pd) {
@@ -169,10 +175,10 @@ public class PresentacionConsola {
 			}
 		} while (repetir);
 	}
-	
+
 	private static void modificar() {
 		Empleado empleado = new Empleado();
-		
+
 //		ejecutarPeticion(new PedirId(empleado));
 //		ejecutarPeticion(new PedirDato() {
 //			
@@ -196,16 +202,29 @@ public class PresentacionConsola {
 	}
 
 	private static void mostrarFicha(Empleado empleado) {
+		pl();
+		
 		if (empleado == null) {
 			pl("No existe ese empleado");
+			pl();
 			return;
 		}
 
-		pl(empleado);
+		pf("Id                  %,d\n", empleado.getId());
+		pf("NIF                 %9s\n", empleado.getNif());
+		pf("Nombre              %s\n", empleado.getNombre());
+		pf("Fecha de nacimiento %1$te de %1$tB de %1$tY\n", empleado.getFechaNacimiento());
+		pf("Sueldo              %,.2f €\n", empleado.getSueldo());
+		pl();
 	}
 
+	private static void cabeceraListado() {
+		pl(" Id\tNIF      \tNombre                        \tFecha     \tSueldo     ");
+	}
+	
 	private static void mostrarLinea(Empleado empleado) {
-		pl(empleado);
+		pf("%3s\t%9s\t%-30s\t%4$td/%4$tm/%4$tY\t%5$,9.2f €\n", empleado.getId(), empleado.getNif(), empleado.getNombre(),
+				empleado.getFechaNacimiento(), empleado.getSueldo());
 	}
 
 //	private static void modificar() {
