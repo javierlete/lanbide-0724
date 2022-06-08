@@ -14,9 +14,13 @@ public class DaoEmpleadoMemoria implements DaoEmpleado {
 	private static final TreeMap<Long, Empleado> empleados = new TreeMap<>();
 
 	static {
+		Empleado e = new Empleado(4L, "12345678Z", "Nombre4", LocalDate.of(2004, 1, 2), new BigDecimal("42345"));
+		
 		empleados.put(1L, new Empleado(1L, "12345678Z", "Javier", LocalDate.of(2000, 1, 2), new BigDecimal("12345")));
 		empleados.put(2L, new Empleado(2L, "12345678Z", "Nombre2", LocalDate.of(2001, 1, 2), new BigDecimal("22345")));
 		empleados.put(3L, new Empleado(3L, "12345678Z", "Nombre3", LocalDate.of(2002, 1, 2), new BigDecimal("32345")));
+		
+		empleados.put(e.getId(), e);
 	}
 
 	// SINGLETON

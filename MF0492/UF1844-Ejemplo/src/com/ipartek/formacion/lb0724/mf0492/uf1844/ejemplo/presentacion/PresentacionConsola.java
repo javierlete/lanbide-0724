@@ -143,9 +143,9 @@ public class PresentacionConsola {
 
 	// Este interface va a servir para representar el cacho de código que cambia
 	// dentro de otro método más generalista
-	private interface PedirDato {
-		void pedir();
-	}
+//	private interface PedirDato {
+//		void pedir();
+//	}
 
 //	private static class PedirId implements PedirDato {
 //
@@ -163,12 +163,12 @@ public class PresentacionConsola {
 
 	// Este método aprovecha el interface anterior para definir el código general
 	// e incrustar el código concreto en la parte que le corresponde
-	private static void validarPeticion(PedirDato pd) {
+	private static void validarPeticion(Runnable pd) {
 		boolean repetir = true;
 
 		do {
 			try {
-				pd.pedir();
+				pd.run();
 				repetir = false;
 			} catch (EntidadesException e) {
 				pl(e.getMessage());
