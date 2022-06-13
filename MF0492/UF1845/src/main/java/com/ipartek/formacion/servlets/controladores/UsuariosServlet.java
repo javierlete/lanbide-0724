@@ -1,9 +1,8 @@
 package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import com.ipartek.formacion.servlets.modelos.Usuario;
+import com.ipartek.formacion.servlets.dal.DaoUsuarioMemoria;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,16 +22,11 @@ public class UsuariosServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<Usuario> usuarios = new ArrayList<>();
-
-		usuarios.add(new Usuario(1L, "javier@lete.net", "javier"));
-		usuarios.add(new Usuario(2L, "pepe@perez.net", "pepe"));
-		usuarios.add(new Usuario(3L, "juan@gonzalez.net", "juan"));
-
+		
 // Empaqueta datos para la siguiente vista
-		request.setAttribute("usuarios", usuarios);
+		request.setAttribute("usuarios", DaoUsuarioMemoria.getInstancia().obtenerTodos());
 // Redirecciona a la siguiente vista
-		request.getRequestDispatcher("usuarios.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/vistas/usuarios.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
