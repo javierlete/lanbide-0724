@@ -38,7 +38,7 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				Mejor cambiamos la contraseña, ¿eh?
 			</c:if></td>
 					<td>
-						<a href="#">Editar</a>
+						<a href="usuario?id=${usuario.id}">Editar</a>
 						<a href="#">Borrar</a>
 					</td>
 				</tr>
@@ -51,7 +51,7 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				<td></td>
 				<td></td>
 				<td>
-					<a href="#">Añadir</a>
+					<a href="usuario">Añadir</a>
 				</td>
 			</tr>
 		</tfoot>
