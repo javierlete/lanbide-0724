@@ -25,6 +25,7 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				<th>Email</th>
 				<th>Password</th>
 				<th>Comentarios</th>
+				<th>Opciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,9 +37,24 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 					<td><c:if test="${usuario.email.contains(usuario.password)}">
 				Mejor cambiamos la contraseña, ¿eh?
 			</c:if></td>
+					<td>
+						<a href="#">Editar</a>
+						<a href="#">Borrar</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<a href="#">Añadir</a>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 
 </body>
