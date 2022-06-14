@@ -10,9 +10,9 @@
 <body>
 
 <form>
-	<input name="id" placeholder="Id">
-	<input name="email" placeholder="Email">
-	<input name="password" placeholder="Password">
+	<input name="id" placeholder="Id" value="${usuario.id}">
+	<input name="email" placeholder="Email" value="${usuario.email}">
+	<input name="password" placeholder="Password" value="${usuario.password}">
 	<button>Guardar cambios</button>
 </form>
 
