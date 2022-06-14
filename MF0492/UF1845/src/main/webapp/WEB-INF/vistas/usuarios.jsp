@@ -39,7 +39,7 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 			</c:if></td>
 					<td>
 						<a href="usuario?id=${usuario.id}">Editar</a>
-						<a href="#">Borrar</a>
+						<a href="borrar?id=${usuario.id}">Borrar</a>
 					</td>
 				</tr>
 			</c:forEach>

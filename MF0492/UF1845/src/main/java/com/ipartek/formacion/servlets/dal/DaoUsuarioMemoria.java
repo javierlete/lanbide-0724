@@ -34,5 +34,24 @@ public class DaoUsuarioMemoria implements DaoUsuario {
 		return usuarios.get(id);
 	}
 	
-	
+	@Override
+	public Usuario insertar(Usuario usuario) {
+		Long id = usuarios.size() > 0 ? usuarios.lastKey() + 1L: 1L;
+		usuario.setId(id);
+		usuarios.put(id, usuario);
+		
+		return usuario;
+	}
+
+	@Override
+	public Usuario modificar(Usuario usuario) {
+		usuarios.put(usuario.getId(), usuario);
+		
+		return usuario;
+	}
+
+	@Override
+	public void borrar(Long id) {
+		usuarios.remove(id);
+	}	
 }

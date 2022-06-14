@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form>
+<form action="usuario" method="post">
 	<input name="id" placeholder="Id" value="${usuario.id}">
 	<input name="email" placeholder="Email" value="${usuario.email}">
 	<input name="password" placeholder="Password" value="${usuario.password}">
