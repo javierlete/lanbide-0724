@@ -14,17 +14,21 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/usuario")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String id = request.getParameter("id");
+
+		if (id != null) {
+			Usuario usuario = DaoUsuarioMemoria.getInstancia().obtenerPorId(Long.parseLong(id));
+			request.setAttribute("usuario", usuario);
+		}
 		
-		Usuario usuario = DaoUsuarioMemoria.getInstancia().obtenerPorId(Long.parseLong(id));
-		
-		request.setAttribute("usuario", usuario);
 		request.getRequestDispatcher("/WEB-INF/vistas/usuario.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
