@@ -9,6 +9,13 @@
 </head>
 <body>
 
+<form>
+	<input name="id" placeholder="Id">
+	<input name="email" placeholder="Email">
+	<input name="password" placeholder="Password">
+	<button>Guardar cambios</button>
+</form>
+
 <%-- 
 Siempre que utilicemos el prefijo c necesitamos
 registrar la taglib mediante la directiva con el mismo nombre
