@@ -32,6 +32,11 @@ public class UsuarioServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Si los caracteres internacionales ñ, á...) salen corruptos
+		// se necesita especificar la codificación de los datos de
+		// entrada
+		request.setCharacterEncoding("UTF-8");
+		
 		String id = request.getParameter("id");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
