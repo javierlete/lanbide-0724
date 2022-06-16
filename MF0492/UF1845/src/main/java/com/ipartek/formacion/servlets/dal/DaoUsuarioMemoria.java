@@ -33,25 +33,38 @@ public class DaoUsuarioMemoria implements DaoUsuario {
 	public Usuario obtenerPorId(Long id) {
 		return usuarios.get(id);
 	}
-	
+
 	@Override
 	public Usuario insertar(Usuario usuario) {
-		Long id = usuarios.size() > 0 ? usuarios.lastKey() + 1L: 1L;
+		Long id = usuarios.size() > 0 ? usuarios.lastKey() + 1L : 1L;
 		usuario.setId(id);
 		usuarios.put(id, usuario);
-		
+
 		return usuario;
 	}
 
 	@Override
 	public Usuario modificar(Usuario usuario) {
 		usuarios.put(usuario.getId(), usuario);
-		
+
 		return usuario;
 	}
 
 	@Override
 	public void borrar(Long id) {
 		usuarios.remove(id);
-	}	
+	}
+
+	@Override
+	public Usuario obtenerPorEmail(String email) {
+//		for(Usuario usuario: usuarios.values()) {
+//			if(usuario.getEmail().equals(email)) {
+//				return usuario;
+//			}
+//		}
+//		
+//		return null;
+
+		return usuarios.values().parallelStream().filter(u -> u.getEmail().equals(email)).findFirst().orElse(null);
+	}
 }
