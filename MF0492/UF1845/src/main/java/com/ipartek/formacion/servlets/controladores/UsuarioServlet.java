@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/usuario")
+@WebServlet("/admin/usuario")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

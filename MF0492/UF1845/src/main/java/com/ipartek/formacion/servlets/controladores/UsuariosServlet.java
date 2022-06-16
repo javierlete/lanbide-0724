@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 // Llama a la lógica de negocio
 // En el caso de no existir, llamará directamente al DAO
 
-@WebServlet("/usuarios")
+@WebServlet("/admin/usuarios")
 public class UsuariosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

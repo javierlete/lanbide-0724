@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import com.ipartek.formacion.servlets.dal.DaoUsuarioMemoria;
 
-@WebServlet("/borrar")
+@WebServlet("/admin/borrar")
 public class BorrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1587748451045724579L;
 
