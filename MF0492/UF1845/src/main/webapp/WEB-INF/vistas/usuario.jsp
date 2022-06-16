@@ -1,41 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Usuario</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 
 <form action="usuario" method="post">
-	<input name="id" placeholder="Id" value="${usuario.id}">
-	<input name="email" placeholder="Email" value="${usuario.email}">
-	<input name="password" placeholder="Password" value="${usuario.password}">
-	<button>Guardar cambios</button>
+	<div class="row mb-3">
+		<label for="id" class="col-sm-2 col-form-label">Id</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" id="id" name="id" value="${usuario.id}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="email" class="col-sm-2 col-form-label">Email</label>
+		<div class="col-sm-10">
+			<input type="email" class="form-control" id="email" name="email" value="${usuario.email}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label for="password" class="col-sm-2 col-form-label">Password</label>
+		<div class="col-sm-10">
+			<input type="password" class="form-control" id="password" name="password" value="${usuario.password}">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<div class="col-sm-10 offset-sm-2">
+			<button type="submit" class="btn btn-primary">Guardar</button>
+			<a class="btn btn-danger" href="usuarios">Cancelar</a>
+		</div>
+	</div>
+	
 </form>
-
-<%-- 
-Siempre que utilicemos el prefijo c necesitamos
-registrar la taglib mediante la directiva con el mismo nombre
- --%>
-	<c:choose>
-		<c:when test="${usuario != null}">
-
-			<dl>
-				<dt>Id</dt>
-				<dd>${usuario.id}</dd>
-				<dt>Email</dt>
-				<dd>${usuario.email}</dd>
-				<dt>Password</dt>
-				<dd>${usuario.password}</dd>
-			</dl>
-
-		</c:when>
-		<c:otherwise>
-			<p>No se ha encontrado el usuario</p>
-		</c:otherwise>
-	</c:choose>
-</body>
-</html>
+<%@ include file="/WEB-INF/vistas/includes/pie.jsp"%>

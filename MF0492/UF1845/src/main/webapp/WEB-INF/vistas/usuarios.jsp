@@ -3,22 +3,10 @@ VISTA de la aplicación
 Cómo quiero que se vea la información recibida
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="com.ipartek.formacion.servlets.modelos.Usuario,java.util.ArrayList"%>
-<%-- 
-Importamos la biblioteca core de las bibliotecas de JSTL
-Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
---%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Usuarios</title>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/vistas/includes/cabecera.jsp" %>
 
-	<table>
+	<table class="table table-hover table-striped table-bordered">
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -38,8 +26,8 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				Mejor cambiamos la contraseña, ¿eh?
 			</c:if></td>
 					<td>
-						<a href="usuario?id=${usuario.id}">Editar</a>
-						<a href="borrar?id=${usuario.id}">Borrar</a>
+						<a class="btn btn-sm btn-primary" href="usuario?id=${usuario.id}">Editar</a>
+						<a class="btn btn-sm btn-danger" href="borrar?id=${usuario.id}">Borrar</a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -51,11 +39,10 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				<td></td>
 				<td></td>
 				<td>
-					<a href="usuario">Añadir</a>
+					<a class="btn btn-sm btn-primary" href="usuario">Añadir</a>
 				</td>
 			</tr>
 		</tfoot>
 	</table>
 
-</body>
-</html>
+<%@ include file="/WEB-INF/vistas/includes/pie.jsp" %>
