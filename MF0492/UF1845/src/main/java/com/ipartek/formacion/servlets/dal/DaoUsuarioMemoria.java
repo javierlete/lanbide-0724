@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 import com.ipartek.formacion.servlets.modelos.Usuario;
 
-public class DaoUsuarioMemoria implements DaoUsuario {
+class DaoUsuarioMemoria implements DaoUsuario {
 	private static final TreeMap<Long, Usuario> usuarios = new TreeMap<>();
 
 	static {
