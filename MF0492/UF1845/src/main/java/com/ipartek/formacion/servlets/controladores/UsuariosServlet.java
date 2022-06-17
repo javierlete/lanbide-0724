@@ -2,8 +2,6 @@ package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
 
-import com.ipartek.formacion.servlets.dal.DaoUsuarioMemoria;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,7 +22,7 @@ public class UsuariosServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 // Empaqueta datos para la siguiente vista
-		request.setAttribute("usuarios", DaoUsuarioMemoria.getInstancia().obtenerTodos());
+		request.setAttribute("usuarios", Globales.DAO.obtenerTodos());
 // Redirecciona a la siguiente vista
 		request.getRequestDispatcher("/WEB-INF/vistas/usuarios.jsp").forward(request, response);
 	}

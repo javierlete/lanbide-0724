@@ -2,8 +2,6 @@ package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
 
-import com.ipartek.formacion.servlets.dal.DaoUsuario;
-import com.ipartek.formacion.servlets.dal.DaoUsuarioMemoria;
 import com.ipartek.formacion.servlets.modelos.Usuario;
 
 import jakarta.servlet.ServletException;
@@ -16,14 +14,12 @@ import jakarta.servlet.http.HttpServletResponse;
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final DaoUsuario DAO = DaoUsuarioMemoria.getInstancia();
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
 
 		if (id != null) {
-			Usuario usuario = DAO.obtenerPorId(Long.parseLong(id));
+			Usuario usuario = Globales.DAO.obtenerPorId(Long.parseLong(id));
 			request.setAttribute("usuario", usuario);
 		}
 
@@ -44,10 +40,10 @@ public class UsuarioServlet extends HttpServlet {
 		Usuario usuario = new Usuario(null, email, password);
 
 		if (id == null || id.trim().length() == 0) {
-			DAO.insertar(usuario);
+			Globales.DAO.insertar(usuario);
 		} else {
 			usuario.setId(Long.parseLong(id));
-			DAO.modificar(usuario);
+			Globales.DAO.modificar(usuario);
 		}
 
 //		request.setAttribute("usuarios", DAO.obtenerTodos());

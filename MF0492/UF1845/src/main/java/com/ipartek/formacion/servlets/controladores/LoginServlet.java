@@ -2,7 +2,6 @@ package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
 
-import com.ipartek.formacion.servlets.dal.DaoUsuarioMemoria;
 import com.ipartek.formacion.servlets.modelos.Usuario;
 
 import jakarta.servlet.ServletException;
@@ -39,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private Usuario validarUsuario(Usuario usuario) {
-		Usuario usuarioEncontrado = DaoUsuarioMemoria.getInstancia().obtenerPorEmail(usuario.getEmail());
+		Usuario usuarioEncontrado = Globales.DAO.obtenerPorEmail(usuario.getEmail());
 		
 		if(usuarioEncontrado != null && usuario.getPassword().equals(usuarioEncontrado.getPassword())) {
 			return usuarioEncontrado;
