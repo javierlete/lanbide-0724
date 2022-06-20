@@ -45,6 +45,9 @@ class DaoUsuarioMemoria implements DaoUsuario {
 
 	@Override
 	public Usuario modificar(Usuario usuario) {
+		if(!usuarios.containsKey(usuario.getId())) {
+			throw new DalException("No puedes modificar un usuario inexistente");
+		}
 		usuarios.put(usuario.getId(), usuario);
 
 		return usuario;

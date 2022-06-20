@@ -17,7 +17,11 @@ public class BorrarServlet extends HttpServlet {
 		
 		Globales.DAO.borrar(Long.parseLong(id));
 		
-		response.sendRedirect(request.getContextPath() + "/admin/usuarios");
+		request.setAttribute("alertatexto", "Se ha borrado el registro " + id + " correctamente");
+		request.setAttribute("alertanivel", "success");
+		
+//		response.sendRedirect(request.getContextPath() + "/admin/usuarios");
+		request.getRequestDispatcher("/admin/usuarios").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

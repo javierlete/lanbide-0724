@@ -47,15 +47,22 @@ Cuidado porque es necesario utilizar la / del final después del contextPath
 				<ul class="navbar-nav mb-2 mb-lg-0">
 					<c:choose>
 						<c:when test="${sessionScope.usuario == null}">
-							<li class="nav-item"><a class="nav-link"
-								href="login">Login</a></li>
+							<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link"
-								href="logout">Logout</a></li>
+							<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+	<c:if test="${alertatexto != null}">
+		<div class="alert alert-${alertanivel} alert-dismissible fade show"
+			role="alert">
+			${alertatexto}
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</c:if>

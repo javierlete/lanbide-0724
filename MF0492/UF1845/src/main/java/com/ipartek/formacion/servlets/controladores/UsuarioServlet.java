@@ -32,18 +32,30 @@ public class UsuarioServlet extends HttpServlet {
 		// se necesita especificar la codificación de los datos de
 		// entrada
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String id = request.getParameter("id");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
 		Usuario usuario = new Usuario(null, email, password);
 
-		if (id == null || id.trim().length() == 0) {
-			Globales.DAO.insertar(usuario);
-		} else {
-			usuario.setId(Long.parseLong(id));
-			Globales.DAO.modificar(usuario);
+		String op = "";
+
+		try {
+			if (id == null || id.trim().length() == 0) {
+				op = "añadido";
+				Globales.DAO.insertar(usuario);
+			} else {
+				op = "modificado";
+				usuario.setId(Long.parseLong(id));
+				Globales.DAO.modificar(usuario);
+			}
+
+			request.setAttribute("alertatexto", "Se ha " + op + " el registro correctamente");
+			request.setAttribute("alertanivel", "success");
+		} catch (Exception e) {
+			request.setAttribute("alertatexto", "La opción de " + op + " no ha funcionado");
+			request.setAttribute("alertanivel", "danger");
 		}
 
 //		request.setAttribute("usuarios", DAO.obtenerTodos());
@@ -53,7 +65,8 @@ public class UsuarioServlet extends HttpServlet {
 		// Pide al navegador que cargue una nueva URL como una nueva REQUEST
 		// El dato que pasamos es la URL que va a cargar el navegador
 //		response.sendRedirect("usuarios");
-		response.sendRedirect(request.getContextPath() + "/admin/usuarios");
+//		response.sendRedirect(request.getContextPath() + "/admin/usuarios");
+		request.getRequestDispatcher("/admin/usuarios").forward(request, response);
 	}
 
 }
