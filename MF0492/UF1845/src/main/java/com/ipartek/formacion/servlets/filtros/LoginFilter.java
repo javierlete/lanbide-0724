@@ -30,7 +30,8 @@ public class LoginFilter extends HttpFilter {
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 
 		if (usuario == null) {
-			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+			httpRequest.setAttribute("error", "Debes estar logueado para acceder a la parte de administración");
+			httpRequest.getRequestDispatcher("/login").forward(httpRequest, httpResponse);
 			return;
 		}
 
