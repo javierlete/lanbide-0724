@@ -13,6 +13,7 @@ public class Globales {
 	
 	static {
 		try {
+			// Diccionario clave/valor
 			Properties props = new Properties();
 			props.load(Globales.class.getClassLoader().getResourceAsStream(CONFIGURACION));
 			
