@@ -20,7 +20,6 @@
 	<div class="row mb-3">
 		<div class="col-sm-10 offset-sm-2">
 			<button type="submit" class="btn btn-primary">Iniciar sesión</button>
-			<span class="text-danger">${error}</span>
 		</div>
 	</div>
 </form>
