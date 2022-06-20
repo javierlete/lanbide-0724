@@ -53,7 +53,7 @@ public class UsuarioServlet extends HttpServlet {
 		// Pide al navegador que cargue una nueva URL como una nueva REQUEST
 		// El dato que pasamos es la URL que va a cargar el navegador
 //		response.sendRedirect("usuarios");
-		response.sendRedirect(request.getContextPath() + "/usuarios");
+		response.sendRedirect(request.getContextPath() + "/admin/usuarios");
 	}
 
 }

@@ -10,22 +10,23 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 <head>
 <meta charset="UTF-8">
 <title>Usuarios</title>
+
+<base href="${pageContext.request.contextPath}/">
+<%-- 
+Base establece la base de las rutas RELATIVAS en lugar de utilizar la URL que visualiza el navegador.
+Afecta a todas las URLs que aparezcan en la página (vínculos, imágenes...)
+Cuidado porque es necesario utilizar la / del final después del contextPath 
+--%>
+
 <!-- CSS only -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-	crossorigin="anonymous">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- JavaScript Bundle with Popper -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-	crossorigin="anonymous"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="container">
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark mb-3">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Navbar</a>
+			<a class="navbar-brand" href="#">Mi superApp</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -33,29 +34,28 @@ Las bibliotecas de JSTL DEBEN estar en WEB-INF/lib
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<%-- me-auto empuja a la derecha el siguiente bloque. Como si tuviéramos un muelle a la derecha de la capa --%>
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Something else
-									here</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link disabled">Disabled</a>
-					</li>
+						aria-current="page" href="#">Principal</a></li>
+					<c:if test="${sessionScope.usuario != null}">
+						<li class="nav-item"><a class="nav-link"
+							href="admin/usuarios">Administración</a></li>
+					</c:if>
 				</ul>
-				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search"
-						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
+				<span class="navbar-text"> ${sessionScope.usuario.email} </span>
+				<ul class="navbar-nav mb-2 mb-lg-0">
+					<c:choose>
+						<c:when test="${sessionScope.usuario == null}">
+							<li class="nav-item"><a class="nav-link"
+								href="login">Login</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link"
+								href="logout">Logout</a></li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
 			</div>
 		</div>
 	</nav>

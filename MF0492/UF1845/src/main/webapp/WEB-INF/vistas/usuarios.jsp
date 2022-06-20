@@ -26,8 +26,8 @@ Cómo quiero que se vea la información recibida
 				Mejor cambiamos la contraseña, ¿eh?
 			</c:if></td>
 					<td>
-						<a class="btn btn-sm btn-primary" href="usuario?id=${usuario.id}">Editar</a>
-						<a class="btn btn-sm btn-danger" href="borrar?id=${usuario.id}">Borrar</a>
+						<a class="btn btn-sm btn-primary" href="admin/usuario?id=${usuario.id}">Editar</a>
+						<a class="btn btn-sm btn-danger" href="admin/borrar?id=${usuario.id}">Borrar</a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -39,7 +39,7 @@ Cómo quiero que se vea la información recibida
 				<td></td>
 				<td></td>
 				<td>
-					<a class="btn btn-sm btn-primary" href="usuario">Añadir</a>
+					<a class="btn btn-sm btn-primary" href="admin/usuario">Añadir</a>
 				</td>
 			</tr>
 		</tfoot>
