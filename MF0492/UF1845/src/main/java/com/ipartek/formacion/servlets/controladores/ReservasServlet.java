@@ -14,17 +14,17 @@ import jakarta.servlet.http.HttpServletResponse;
 // Llama a la lógica de negocio
 // En el caso de no existir, llamará directamente al DAO
 
-@WebServlet("/admin/usuarios")
-public class UsuariosServlet extends HttpServlet {
+@WebServlet("/admin/reservas")
+public class ReservasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 // Empaqueta datos para la siguiente vista
-		request.setAttribute("usuarios", Globales.DAO_USUARIO.obtenerTodos());
+		request.setAttribute("reservas", Globales.DAO_RESERVA.obtenerTodos());
 // Redirecciona a la siguiente vista
-		request.getRequestDispatcher("/WEB-INF/vistas/usuarios.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/vistas/reservas.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

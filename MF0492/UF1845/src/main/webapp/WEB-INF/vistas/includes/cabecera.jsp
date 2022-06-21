@@ -39,9 +39,18 @@ Cuidado porque es necesario utilizar la / del final después del contextPath
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="#">Principal</a></li>
 					<c:if test="${sessionScope.usuario != null}">
-						<li class="nav-item"><a class="nav-link"
-							href="admin/usuarios">Administración</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Administración </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="admin/reservas">Reservas</a></li>
+								<li><a class="dropdown-item" href="admin/usuarios">Usuarios</a></li>
+
+							</ul></li>
 					</c:if>
+					<li class="nav-item"><a class="nav-link" href="hacer-reserva">Hacer
+							reserva</a></li>
 				</ul>
 				<span class="navbar-text"> ${sessionScope.usuario.email} </span>
 				<ul class="navbar-nav mb-2 mb-lg-0">

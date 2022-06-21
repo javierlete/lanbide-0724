@@ -15,7 +15,7 @@ public class BorrarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		Globales.DAO.borrar(Long.parseLong(id));
+		Globales.DAO_USUARIO.borrar(Long.parseLong(id));
 		
 		request.setAttribute("alertatexto", "Se ha borrado el registro " + id + " correctamente");
 		request.setAttribute("alertanivel", "success");

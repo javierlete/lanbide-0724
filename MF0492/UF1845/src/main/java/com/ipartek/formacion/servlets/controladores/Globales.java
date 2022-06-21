@@ -5,10 +5,12 @@ import java.util.Properties;
 
 import com.ipartek.formacion.servlets.dal.DalException;
 import com.ipartek.formacion.servlets.dal.DaoFabrica;
+import com.ipartek.formacion.servlets.dal.DaoReserva;
 import com.ipartek.formacion.servlets.dal.DaoUsuario;
 
 public class Globales {
-	static final DaoUsuario DAO;
+	static final DaoUsuario DAO_USUARIO;
+	static final DaoReserva DAO_RESERVA;
 	private static final String CONFIGURACION = "configuracion.properties"; 
 	
 	static {
@@ -19,7 +21,10 @@ public class Globales {
 			
 			String tipo = props.getProperty("dal.tipodao");
 			
-			DAO = new DaoFabrica(tipo).getDaoUsuario();
+			DaoFabrica fabrica = new DaoFabrica(tipo);
+			
+			DAO_USUARIO = fabrica.getDaoUsuario();
+			DAO_RESERVA = fabrica.getDaoReserva();
 		} catch (IOException e) {
 			throw new DalException("No se ha podido obtener la configuración");
 		}

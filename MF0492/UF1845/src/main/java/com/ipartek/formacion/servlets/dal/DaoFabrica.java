@@ -4,6 +4,7 @@ package com.ipartek.formacion.servlets.dal;
 // Tendrá métodos getDaoEntidad()
 public class DaoFabrica {
 	private DaoUsuario daoUsuario;
+	private DaoReserva daoReserva;
 	
 	// Esta fábrica concretamente genera sólo un objeto de DAO por cada entidad
 	// Con ello está creando el objeto como si fuera un Singleton
@@ -11,6 +12,7 @@ public class DaoFabrica {
 		switch(tipoDao) {
 		case "memoria":
 			daoUsuario = DaoUsuarioMemoria.getInstancia();
+			daoReserva = new DaoReservaMemoria();
 			break;
 		case "excepcion":
 			daoUsuario = new DaoUsuarioExcepcion();
@@ -23,5 +25,9 @@ public class DaoFabrica {
 	// Como no se hace un new en cada get, siempre devuelve el mismo objeto
 	public DaoUsuario getDaoUsuario() {
 		return daoUsuario;
+	}
+	
+	public DaoReserva getDaoReserva() {
+		return daoReserva;
 	}
 }

@@ -19,7 +19,7 @@ public class UsuarioServlet extends HttpServlet {
 		String id = request.getParameter("id");
 
 		if (id != null) {
-			Usuario usuario = Globales.DAO.obtenerPorId(Long.parseLong(id));
+			Usuario usuario = Globales.DAO_USUARIO.obtenerPorId(Long.parseLong(id));
 			request.setAttribute("usuario", usuario);
 		}
 
@@ -44,11 +44,11 @@ public class UsuarioServlet extends HttpServlet {
 		try {
 			if (id == null || id.trim().length() == 0) {
 				op = "añadido";
-				Globales.DAO.insertar(usuario);
+				Globales.DAO_USUARIO.insertar(usuario);
 			} else {
 				op = "modificado";
 				usuario.setId(Long.parseLong(id));
-				Globales.DAO.modificar(usuario);
+				Globales.DAO_USUARIO.modificar(usuario);
 			}
 
 			request.setAttribute("alertatexto", "Se ha " + op + " el registro correctamente");

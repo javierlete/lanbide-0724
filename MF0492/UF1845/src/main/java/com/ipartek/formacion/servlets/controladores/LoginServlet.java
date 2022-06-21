@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private Usuario validarUsuario(Usuario usuario) {
-		Usuario usuarioEncontrado = Globales.DAO.obtenerPorEmail(usuario.getEmail());
+		Usuario usuarioEncontrado = Globales.DAO_USUARIO.obtenerPorEmail(usuario.getEmail());
 		
 		if(usuarioEncontrado != null && usuario.getPassword().equals(usuarioEncontrado.getPassword())) {
 			return usuarioEncontrado;
