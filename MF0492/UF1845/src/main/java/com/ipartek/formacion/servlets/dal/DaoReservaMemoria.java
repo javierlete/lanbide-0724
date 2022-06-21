@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 import com.ipartek.formacion.servlets.modelos.Reserva;
 
-public class DaoReservaMemoria implements DaoReserva {
+class DaoReservaMemoria implements DaoReserva {
 	private static final TreeMap<Long, Reserva> reservas = new TreeMap<>();
 
 	@Override
