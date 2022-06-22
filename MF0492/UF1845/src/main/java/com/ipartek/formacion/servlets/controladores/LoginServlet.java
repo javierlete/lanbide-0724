@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 		
 		if(usuarioValidado != null) {
 			request.getSession().setAttribute("usuario", usuarioValidado);
-			response.sendRedirect(request.getContextPath() + "/admin/usuarios");
+			response.sendRedirect(request.getContextPath() + "/admin/reservas");
 		} else {
 			request.setAttribute("alertatexto", "Email o contraseña incorrectos");
 			request.setAttribute("alertanivel", "danger");

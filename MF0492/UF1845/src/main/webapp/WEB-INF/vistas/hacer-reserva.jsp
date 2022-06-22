@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 
+<!-- 
+<pre>
+${reserva}
+</pre>
+-->
+ 
 <form action="hacer-reserva" method="post">
 	<%-- <div class="row mb-3">
 		<label for="id" class="col-sm-2 col-form-label">Id</label>
@@ -16,6 +22,7 @@
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="nombre" name="nombre"
 				value="${reserva.nombre}">
+			<span class="text-danger">${reserva.errores.nombre}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -23,6 +30,7 @@
 		<div class="col-sm-10">
 			<input type="email" class="form-control" id="email" name="email"
 				value="${reserva.email}">
+			<span class="text-danger">${reserva.errores.email}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -30,6 +38,7 @@
 		<div class="col-sm-10">
 			<input type="tel" class="form-control" id="telefono"
 				name="telefono" value="${reserva.telefono}">
+			<span class="text-danger">${reserva.errores.telefono}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -37,6 +46,7 @@
 		<div class="col-sm-10">
 			<input type="datetime-local" class="form-control" id="fechaHora"
 				name="fechaHora" value="${reserva.fechaHora}">
+			<span class="text-danger">${reserva.errores.fechaHora}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -44,6 +54,7 @@
 		<div class="col-sm-10">
 			<input type="number" min="1" class="form-control" id="numeroPersonas"
 				name="numeroPersonas" value="${reserva.numeroPersonas}">
+			<span class="text-danger">${reserva.errores.numeroPersonas}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -51,6 +62,7 @@
 		<div class="col-sm-10">
 			<textarea class="form-control" id="comentarios"
 				name="comentarios" value="${reserva.comentarios}"></textarea>
+			<span class="text-danger">${reserva.errores.comentarios}</span>
 		</div>
 	</div>
 	<div class="row mb-3">
