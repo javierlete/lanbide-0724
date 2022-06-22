@@ -8,7 +8,7 @@ ${reserva}
 </pre>
 -->
  
-<form action="hacer-reserva" method="post">
+<form action="hacer-reserva" method="post" novalidate>
 	<%-- <div class="row mb-3">
 		<label for="id" class="col-sm-2 col-form-label">Id</label>
 		<div class="col-sm-10">

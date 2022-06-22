@@ -21,6 +21,17 @@ public class Reserva {
 
 	private Map<String, String> errores = new HashMap<>();
 
+	public Reserva(String id, String nombre, String email, String telefono, String fechaHora, String numeroPersonas,
+			String comentarios) {
+		setId(id);
+		setNombre(nombre);
+		setEmail(email);
+		setTelefono(telefono);
+		setFechaHora(fechaHora);
+		setNumeroPersonas(numeroPersonas);
+		setComentarios(comentarios);
+	}
+
 	public Reserva(Long id, String nombre, String email, String telefono, LocalDateTime fechaHora,
 			Integer numeroPersonas, String comentarios) {
 		setId(id);
@@ -34,6 +45,16 @@ public class Reserva {
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		if (id != null && id.trim().length() != 0) {
+			try {
+				setId(Long.parseLong(id));
+			} catch (NumberFormatException e) {
+				errores.put("id", "No es un número");
+			}
+		}
 	}
 
 	public void setId(Long id) {
@@ -84,6 +105,14 @@ public class Reserva {
 		return fechaHora;
 	}
 
+	public void setFechaHora(String fechaHora) {
+		try {
+			setFechaHora(LocalDateTime.parse(fechaHora));
+		} catch (Exception e) {
+			errores.put("fechaHora", "Se debe introducir una fecha válida");
+		}
+	}
+
 	public void setFechaHora(LocalDateTime fechaHora) {
 		if (fechaHora == null || fechaHora.isBefore(LocalDateTime.now())
 				|| fechaHora.isAfter(LocalDateTime.now().plusMonths(1))) {
@@ -95,6 +124,14 @@ public class Reserva {
 
 	public Integer getNumeroPersonas() {
 		return numeroPersonas;
+	}
+
+	public void setNumeroPersonas(String numeroPersonas) {
+		try {
+			setNumeroPersonas(Integer.parseInt(numeroPersonas));
+		} catch (NumberFormatException e) {
+			errores.put("numeroPersonas", "Se debe introducir un número");
+		}
 	}
 
 	public void setNumeroPersonas(Integer numeroPersonas) {
@@ -113,7 +150,7 @@ public class Reserva {
 		if (comentarios == null) {
 			throw new ModelosException("No se han recibido los comentarios");
 		}
-		
+
 		this.comentarios = comentarios;
 	}
 

@@ -1,7 +1,6 @@
 package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import com.ipartek.formacion.servlets.modelos.Reserva;
 
@@ -28,7 +27,7 @@ public class HacerReservaServlet extends HttpServlet {
 		String numeroPersonas = request.getParameter("numeroPersonas");
 		String comentarios = request.getParameter("comentarios");
 		
-		Reserva reserva = new Reserva(null, nombre, email, telefono, LocalDateTime.parse(fechaHora), Integer.parseInt(numeroPersonas), comentarios);
+		Reserva reserva = new Reserva(null, nombre, email, telefono, fechaHora, numeroPersonas, comentarios);
 		
 		if(reserva.getErrores().size() > 0) {
 			request.setAttribute("alertatexto", "No se ha podido realizar la reserva. Revise los datos.");
