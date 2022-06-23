@@ -1,6 +1,15 @@
 package com.ipartek.formacion.servlets.modelos;
 
+import java.util.Date;
 import java.util.Objects;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class Notificacion {
 	private Long id;
@@ -66,5 +75,40 @@ public class Notificacion {
 				+ asunto + ", texto=" + texto + "]";
 	}
 	
-	
+	public void enviar() {
+		System.out.println("REMITENTE:    " + getRemitente());
+		System.out.println("DESTINATARIO: " + getDestinatario());
+		System.out.println("ASUNTO:       " + getAsunto());
+
+		System.out.println();
+		System.out.println(getTexto());
+
+
+		try {
+			Properties props = new Properties();
+			
+			// Configuramos para utilizar nuestro propio ordenador como enviador de correos electrónicos
+			// Usamos FakeSMTP https://github.com/gessnerfl/fake-smtp-server
+			// Para ver los mensajes enviados, utilizar http://localhost:5080
+			
+			// Para ejemplo de envío con GMail https://mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
+			props.put("mail.smtp.host", "localhost");
+			props.put("mail.smtp.port", 5025);
+			
+			Session session = Session.getInstance(props, null);
+
+			MimeMessage message = new MimeMessage(session);
+			
+			message.setFrom(new InternetAddress(getRemitente()));
+			message.setRecipient(Message.RecipientType.TO, new InternetAddress(getDestinatario()));
+			message.setSubject(getAsunto());
+			message.setSentDate(new Date());
+			message.setText(getTexto());
+			
+			Transport.send(message);
+		} catch (MessagingException e) {
+			throw new ModelosException("No se ha podido enviar el correo", e);
+		}
+	}
+
 }

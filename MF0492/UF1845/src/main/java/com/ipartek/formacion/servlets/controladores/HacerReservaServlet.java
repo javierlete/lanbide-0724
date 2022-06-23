@@ -1,15 +1,6 @@
 package com.ipartek.formacion.servlets.controladores;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import com.ipartek.formacion.servlets.modelos.Notificacion;
 import com.ipartek.formacion.servlets.modelos.Reserva;
@@ -70,46 +61,9 @@ public class HacerReservaServlet extends HttpServlet {
 
 		Notificacion notificacionCliente = new Notificacion(null, EMAIL_NOTIFICACIONES, reserva.getEmail(), asunto,
 				texto);
-		enviarNotificacion(notificacionCliente);
+		notificacionCliente.enviar();
 
 		Notificacion notificacionCamarero = new Notificacion(null, EMAIL_NOTIFICACIONES, EMAIL_CAMARERO, asunto, texto);
-		enviarNotificacion(notificacionCamarero);
+		notificacionCamarero.enviar();
 	}
-
-	private void enviarNotificacion(Notificacion notificacion) throws ServletException {
-		System.out.println("REMITENTE:    " + notificacion.getRemitente());
-		System.out.println("DESTINATARIO: " + notificacion.getDestinatario());
-		System.out.println("ASUNTO:       " + notificacion.getAsunto());
-
-		System.out.println();
-		System.out.println(notificacion.getTexto());
-
-
-		try {
-			Properties props = new Properties();
-			
-			// Configuramos para utilizar nuestro propio ordenador como enviador de correos electrónicos
-			// Usamos FakeSMTP https://github.com/gessnerfl/fake-smtp-server
-			// Para ver los mensajes enviados, utilizar http://localhost:5080
-			
-			// Para ejemplo de envío con GMail https://mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
-			props.put("mail.smtp.host", "localhost");
-			props.put("mail.smtp.port", 5025);
-			
-			Session session = Session.getInstance(props, null);
-
-			MimeMessage message = new MimeMessage(session);
-			
-			message.setFrom(new InternetAddress(notificacion.getRemitente()));
-			message.setRecipient(Message.RecipientType.TO, new InternetAddress(notificacion.getDestinatario()));
-			message.setSubject(notificacion.getAsunto());
-			message.setSentDate(new Date());
-			message.setText(notificacion.getTexto());
-			
-			Transport.send(message);
-		} catch (MessagingException e) {
-			throw new ServletException("No se ha podido enviar el correo", e);
-		}
-	}
-
 }
