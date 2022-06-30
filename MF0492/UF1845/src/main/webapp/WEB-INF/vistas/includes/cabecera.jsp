@@ -75,3 +75,5 @@ Cuidado porque es necesario utilizar la / del final después del contextPath
 				aria-label="Close"></button>
 		</div>
 	</c:if>
+	
+	<main>

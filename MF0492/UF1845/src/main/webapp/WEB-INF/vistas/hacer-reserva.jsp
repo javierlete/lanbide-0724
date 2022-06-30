@@ -61,7 +61,7 @@ ${reserva}
 		<label for="comentarios" class="col-sm-2 col-form-label">Comentarios</label>
 		<div class="col-sm-10">
 			<textarea class="form-control" id="comentarios"
-				name="comentarios" value="${reserva.comentarios}"></textarea>
+				name="comentarios">${reserva.comentarios}</textarea>
 			<span class="text-danger">${reserva.errores.comentarios}</span>
 		</div>
 	</div>
