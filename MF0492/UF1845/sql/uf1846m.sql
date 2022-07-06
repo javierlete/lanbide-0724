@@ -18,6 +18,35 @@ USE `uf1846m`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `reservas`
+--
+
+DROP TABLE IF EXISTS `reservas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `reservas` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `telefono` char(9) DEFAULT NULL,
+  `fecha_hora` datetime NOT NULL,
+  `numero_personas` int NOT NULL,
+  `comentarios` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reservas`
+--
+
+LOCK TABLES `reservas` WRITE;
+/*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
+INSERT INTO `reservas` VALUES (1,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(2,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(3,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(4,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(5,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(6,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(7,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh'),(8,'asdfasdf','asdf@asdfasd.asd','123456789','2022-07-14 10:06:00',3,'sdfasdfasdhgasdh');
+/*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -39,7 +68,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'pepe@perez.net','pepe'),(4,'javier@lete.net','contraseña');
+INSERT INTO `usuarios` VALUES (4,'javier@lete.net','contraseña');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-01 10:56:33
+-- Dump completed on 2022-07-06 12:07:35
