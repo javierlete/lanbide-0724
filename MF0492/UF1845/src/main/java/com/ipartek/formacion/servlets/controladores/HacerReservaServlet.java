@@ -61,9 +61,13 @@ public class HacerReservaServlet extends HttpServlet {
 
 		Notificacion notificacionCliente = new Notificacion(null, EMAIL_NOTIFICACIONES, reserva.getEmail(), asunto,
 				texto);
-		notificacionCliente.enviar();
+		
+		// FIXME Corregir el error de envío
+		// notificacionCliente.enviar();
 
 		Notificacion notificacionCamarero = new Notificacion(null, EMAIL_NOTIFICACIONES, EMAIL_CAMARERO, asunto, texto);
-		notificacionCamarero.enviar();
+		
+		// FIXME Corregir el error de envío
+		// notificacionCamarero.enviar();
 	}
 }

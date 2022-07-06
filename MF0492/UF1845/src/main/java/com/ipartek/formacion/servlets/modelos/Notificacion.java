@@ -92,7 +92,7 @@ public class Notificacion {
 			// Para ver los mensajes enviados, utilizar http://localhost:5080
 			
 			// Para ejemplo de envío con GMail https://mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
-			props.put("mail.smtp.host", "localhost");
+			props.put("mail.smtp.host", "127.0.0.1");
 			props.put("mail.smtp.port", 5025);
 			
 			Session session = Session.getInstance(props, null);

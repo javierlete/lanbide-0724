@@ -19,6 +19,7 @@ public class DaoFabrica {
 			break;
 		case "mysql":
 			daoUsuario = new DaoUsuarioMySql(url, user, pass, driver);
+			daoReserva = new DaoReservaMySql(url, user, pass, driver);
 			break;
 		default:
 			throw new DalException("No conozco ese tipo " + tipoDao);
