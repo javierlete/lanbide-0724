@@ -7,6 +7,10 @@
 	<name>Ejemplo de UF1846</name>
 	<description>Ejemplo con base de datos, Maven y aplicación web</description>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
 		<dependency>
