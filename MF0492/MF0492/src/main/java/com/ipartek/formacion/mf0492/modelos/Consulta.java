@@ -2,8 +2,10 @@ package com.ipartek.formacion.mf0492.modelos;
 
 import java.time.LocalDateTime;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 public class Consulta {
 	private Long id;

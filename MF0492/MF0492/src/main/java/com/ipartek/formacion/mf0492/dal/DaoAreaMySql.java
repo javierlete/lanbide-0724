@@ -23,7 +23,7 @@ public class DaoAreaMySql implements DaoArea {
 
 			try (Connection con = DriverManager.getConnection(url, user, pass);
 					PreparedStatement ps = con
-							.prepareStatement("SELECT id, municipio, codigo_postal WHERE codigo_postal LIKE ?")) {
+							.prepareStatement("SELECT id, municipio, codigo_postal FROM areas WHERE codigo_postal LIKE ?")) {
 				ps.setString(1, codigoPostal);
 
 				ArrayList<Area> areas;

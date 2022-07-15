@@ -22,7 +22,7 @@ public class DaoUsuarioMySql implements DaoUsuario {
 
 			try (Connection con = DriverManager.getConnection(url, user, pass);
 					PreparedStatement ps = con
-							.prepareStatement("SELECT id, nickname, password WHERE nickname = ?")) {
+							.prepareStatement("SELECT id, nickname, password FROM usuarios WHERE nickname = ?")) {
 				ps.setString(1, nickname);
 
 				try (ResultSet rs = ps.executeQuery()) {
