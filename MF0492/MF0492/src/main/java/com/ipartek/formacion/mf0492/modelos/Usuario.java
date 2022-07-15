@@ -3,8 +3,10 @@ package com.ipartek.formacion.mf0492.modelos;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder // Genera una clase que construye objetos de tipo Usuario con métodos por cada campo
 @Data
 public class Usuario {
 	private Long id;
