@@ -5,12 +5,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form method="post">
-		<input type="number" name="id" placeholder="Id">
-		<input type="text" name="nombre" placeholder="Nombre">
-		<input type="number" step=".02" name="precio" placeholder="Precio">
-		<input type="date" name="fechaCaducidad" placeholder="Fecha de caducidad">
-		<input type="number" name="stock" placeholder="Stock">
+	<form method="post" th:object="${producto}">
+		<input type="number" th:field="*{id}" placeholder="Id">
+		<p th:if="${#fields.hasErrors('id')}">El id <span th:errors="*{id}"></span></p>
+		
+		<input type="text" th:field="*{nombre}" placeholder="Nombre">
+		<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+		
+		<input type="number" step=".02" th:field="*{precio}" placeholder="Precio">
+		<p th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></p>
+		
+		<input type="date" th:field="*{fechaCaducidad}" placeholder="Fecha de caducidad">
+		<p th:if="${#fields.hasErrors('fechaCaducidad')}" th:errors="*{fechaCaducidad}"></p>
+		
+		<input type="number" th:field="*{stock}" placeholder="Stock">
+		<p th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></p>
 		
 		<button>Aceptar</button>
 	</form>
