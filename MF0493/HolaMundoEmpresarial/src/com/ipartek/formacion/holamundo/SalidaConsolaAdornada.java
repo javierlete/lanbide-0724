@@ -1,5 +1,8 @@
 package com.ipartek.formacion.holamundo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SalidaConsolaAdornada implements Salida {
 
 	@Override
