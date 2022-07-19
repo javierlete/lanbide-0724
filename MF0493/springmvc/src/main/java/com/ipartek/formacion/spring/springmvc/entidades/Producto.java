@@ -7,7 +7,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,10 +21,10 @@ public class Producto {
 	private Long id;
 	
 	@NotBlank
-	@Size(min = 3, max = 100)
+	@Size(min = 3, max = 45)
 	private String nombre;
 	
-	@Pattern(regexp = "\\d+\\.\\d{2}")
+	@NotNull
 	@DecimalMin("0")
 	private BigDecimal precio;
 	

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Precio</th>
+				<th>Fecha de caducidad</th>
+				<th>Stock</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p: ${productos}">
+				<th th:text="${p.id}">Id</th>
+				<td th:text="${p.nombre}">Nombre</td>
+				<td th:text="${p.precio}">Precio</td>
+				<td th:text="${p.fechaCaducidad}">Fecha de caducidad</td>
+				<td th:text="${p.stock}">Stock</td>
+				<td>
+					<a th:href="@{/admin/productos/formulario/} + ${p.id}" href="#">Editar</a>
+					<a th:href="@{/admin/productos/borrar/} + ${p.id}" href="#">Borrar</a>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<a th:href="@{/admin/productos/formulario/}" href="#">Añadir</a>
+				</td>
+			</tr>
+		</tfoot>
+		
+	</table>
+</body>
+</html>
