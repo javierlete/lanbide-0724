@@ -3,6 +3,7 @@ package com.ipartek.formacion.spring.springmvc.controladores;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,19 +11,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ipartek.formacion.spring.springmvc.entidades.Producto;
-import com.ipartek.formacion.spring.springmvc.repositorios.DaoProducto;
+import com.ipartek.formacion.spring.springmvc.repositorios.ProductoRepository;
 
 @Controller
 @RequestMapping("/admin/productos")
 public class ProductoController {
 	@Autowired
-	private DaoProducto dao;
+	private ProductoRepository repo;
 	
 	@GetMapping
 	public String mostrarListado(Model modelo) {
-		modelo.addAttribute("productos", dao.obtenerTodos());
+		modelo.addAttribute("productos", repo.findAll());
 		return "productos";
 	}
 	
@@ -37,13 +39,18 @@ public class ProductoController {
 	
 	@GetMapping("/formulario/{id}")
 	public String mostrarFormularioConProducto(@PathVariable Long id, Model modelo) {
-		modelo.addAttribute("producto", dao.obtenerPorId(id));
+		modelo.addAttribute("producto", repo.findById(id));
 		return "producto";
 	}
 	
 	@GetMapping("/borrar/{id}")
-	public String borrar(@PathVariable Long id) {
-		dao.borrar(id);
+	public String borrar(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+		try {
+			repo.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			redirectAttributes.addFlashAttribute("error", "No se ha podido borrar el elemento porque no existía");
+		}
+		
 		return "redirect:/admin/productos";
 	}
 	
@@ -57,11 +64,7 @@ public class ProductoController {
 			return "producto";
 		}
 		
-		if(producto.getId() != null) {
-			dao.modificar(producto);
-		} else {
-			dao.insertar(producto);
-		}
+		repo.save(producto);
 		
 		return "redirect:/admin/productos";
 		//return "producto-detalle";

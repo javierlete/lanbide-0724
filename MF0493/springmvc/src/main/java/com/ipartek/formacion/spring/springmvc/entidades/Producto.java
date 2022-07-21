@@ -3,6 +3,11 @@ package com.ipartek.formacion.spring.springmvc.entidades;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
@@ -15,8 +20,12 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
 
+@Entity
+@Table(name = "productos")
 @Data
 public class Producto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Min(1)
 	private Long id;
 	
