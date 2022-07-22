@@ -1,12 +1,15 @@
 package com.ipartek.formacion.spring.springmvc.configuraciones;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 // https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
@@ -40,15 +43,28 @@ public class WebSecurityConfig {
     }
 
     // AUTENTICACIÓN
-    @Bean
-    InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("admin")
-                        .password("contra")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
+	@Bean
+    UserDetailsManager users(DataSource dataSource) {
+        return new JdbcUserDetailsManager(dataSource);
     }
+	
+	@Bean
+	PasswordEncoder passwordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+	    //return new BCryptPasswordEncoder();
+	}
+	
+//	create table users(
+//		username varchar(50) not null primary key,
+//		password varchar(50) not null,
+//		enabled boolean not null
+//	);
+//
+//	create table authorities (
+//		username varchar(50) not null,
+//		authority varchar(50) not null,
+//		constraint fk_authorities_users foreign key(username) references users(username)
+//	);
+//	create unique index ix_auth_username on authorities (username,authority);
+
 }
