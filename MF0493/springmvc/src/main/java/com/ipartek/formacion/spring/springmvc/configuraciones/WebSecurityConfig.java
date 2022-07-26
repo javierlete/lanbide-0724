@@ -25,7 +25,7 @@ public class WebSecurityConfig {
         		// A las rutas "/admin/LO/QUE/SEA" sólo se les permite el acceso a usuarios autenticados
 				// ** significa cualquier nivel de anidación
 				// * significa sólo a ese nivel
-				.antMatchers("/admin/**").authenticated()
+				.antMatchers("/admin/**").hasRole("ADMIN")
 				// Al resto de peticiones se les permite el acceso, sean anónimas o no
 				.anyRequest().permitAll()
 				// A las rutas "/" o "/home" se les permite el acceso a cualquiera
@@ -45,7 +45,13 @@ public class WebSecurityConfig {
     // AUTENTICACIÓN
 	@Bean
     UserDetailsManager users(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
+        JdbcUserDetailsManager jdbc = new JdbcUserDetailsManager(dataSource);
+        
+        jdbc.setUsersByUsernameQuery("SELECT nick AS username, password, TRUE FROM usuarios WHERE nick = ?");
+        jdbc.setRolePrefix("ROLE_");
+        jdbc.setAuthoritiesByUsernameQuery("SELECT nick AS username, rol AS authority FROM usuarios WHERE nick = ?");
+        
+        return jdbc;
     }
 	
 	@Bean

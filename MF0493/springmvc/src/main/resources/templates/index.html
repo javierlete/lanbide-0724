@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Principal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form th:action="@{/logout}" method="post">
+		<button>Logout</button>
+	</form>
+	
+	<a th:href="@{/admin/productos}">Listado productos</a>
+</body>
+</html>
