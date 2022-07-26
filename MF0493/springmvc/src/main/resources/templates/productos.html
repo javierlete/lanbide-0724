@@ -5,6 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<form th:action="@{/logout}" method="post">
+		<button>Logout</button>
+	</form>
+
 	<pre th:text="${error}"></pre>
 	<table>
 		<thead>
