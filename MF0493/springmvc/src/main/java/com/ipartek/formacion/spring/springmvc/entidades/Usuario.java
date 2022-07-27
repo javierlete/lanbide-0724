@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
@@ -22,13 +23,17 @@ public class Usuario {
 	@NotNull
 	@NotBlank
 	@Column(unique = true)
+	@Size(max = 100)
 	private String nick;
 	
 	@NotNull
 	@NotBlank
+	@Size(max = 100)
 	private String password;
 	
 	private String nombre;
 	private String email;
+	
+	@NotNull
 	private String rol = "USUARIO";
 }
