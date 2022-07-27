@@ -34,7 +34,7 @@ public class WebSecurityConfig {
 				// .anyRequest().authenticated()
             )
             .formLogin()
-				.loginPage("/login")
+				.loginPage("/login") // Sustituye el login por defecto por un controlador creado por nosotros para la petición GET
 				.permitAll()
 				.and()
 			.logout()
