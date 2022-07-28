@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form method="post" th:object="${producto}">
+	<form method="post" th:action="@{/admin/productos/formulario}" th:object="${producto}">
 		<input type="number" th:field="*{id}" placeholder="Id">
 		<p th:if="${#fields.hasErrors('id')}">El id <span th:errors="*{id}"></span></p>
 		

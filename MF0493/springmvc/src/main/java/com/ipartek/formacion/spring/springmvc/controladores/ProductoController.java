@@ -54,7 +54,7 @@ public class ProductoController {
 		return "redirect:/admin/productos";
 	}
 	
-	@PostMapping("/formulario/*")
+	@PostMapping("/formulario")
 	// @Valid lanza la validación de todos los atributos de producto
 	// Deja el resultado en el bindingResult que tiene que estar necesariamente
 	// después del objeto que valida
