@@ -49,7 +49,7 @@ public class WebSecurityConfig {
         
         jdbc.setUsersByUsernameQuery("SELECT nick AS username, password, TRUE FROM usuarios WHERE nick = ?");
         jdbc.setRolePrefix("ROLE_");
-        jdbc.setAuthoritiesByUsernameQuery("SELECT nick AS username, rol AS authority FROM usuarios WHERE nick = ?");
+        jdbc.setAuthoritiesByUsernameQuery("SELECT nick, r.nombre FROM usuarios u JOIN roles r ON r.id = u.rol_id WHERE nick = ?");
         
         return jdbc;
     }
