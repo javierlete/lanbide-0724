@@ -2,11 +2,13 @@ package com.ipartek.formacion.spring.springmvc.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
@@ -19,6 +21,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "productos")
@@ -43,4 +47,9 @@ public class Producto {
 	
 	@Min(0)
 	private Integer stock;
+	
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	@ManyToMany(mappedBy = "productos")
+	private Set<Factura> facturas;
 }

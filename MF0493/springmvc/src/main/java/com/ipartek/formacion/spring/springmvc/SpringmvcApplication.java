@@ -6,7 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.ipartek.formacion.spring.springmvc.dtos.UsuarioRol;
+import com.ipartek.formacion.spring.springmvc.entidades.Factura;
 import com.ipartek.formacion.spring.springmvc.entidades.Usuario;
+import com.ipartek.formacion.spring.springmvc.repositorios.FacturaRepository;
 import com.ipartek.formacion.spring.springmvc.repositorios.UsuarioRepository;
 
 @SpringBootApplication
@@ -19,10 +21,25 @@ public class SpringmvcApplication implements CommandLineRunner { // implements C
 	@Autowired
 	private UsuarioRepository repoUsuario;
 	
+	@Autowired
+	private FacturaRepository repoFactura;
+	
 	// Este funcionaría como un main de consola
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("EN CONSOLA");
+		
+		for(Factura f: repoFactura.findAll()) {
+			System.out.println(f);
+		}
+		
+		Factura factura = repoFactura.findById(1L).orElse(null);
+
+		System.out.println(factura);
+		System.out.println(factura.getCliente());
+		System.out.println(factura.getCliente().getUsuario());
+		System.out.println(factura.getCliente().getUsuario().getRol());
+		System.out.println(factura.getProductos());
 		
 		Usuario porNick = repoUsuario.findByNick("javier");
 		
