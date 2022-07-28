@@ -9,7 +9,7 @@ import com.ipartek.formacion.spring.springmvc.dtos.UsuarioRol;
 import com.ipartek.formacion.spring.springmvc.entidades.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
-	@Query("select u from Usuario u join fetch u.rol where nick = :nick")
+	@Query("select u from Usuario u join fetch u.rol join fetch u.cliente where nick = :nick")
 	Usuario findByNick(String nick);
 	
 	@Query("select u from Usuario u join fetch u.rol")

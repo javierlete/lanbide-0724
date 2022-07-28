@@ -28,6 +28,7 @@ public class SpringmvcApplication implements CommandLineRunner { // implements C
 		
 		System.out.println(porNick);
 		System.out.println(porNick.getRol());
+		System.out.println(porNick.getCliente());
 		
 		UsuarioRol usuarioRol = repoUsuario.obtenerUsuarioRol("javier");
 		
