@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.ipartek.formacion.spring.springmvc.dtos.UsuarioRol;
 import com.ipartek.formacion.spring.springmvc.entidades.Factura;
+import com.ipartek.formacion.spring.springmvc.entidades.FacturaLinea;
 import com.ipartek.formacion.spring.springmvc.entidades.Usuario;
 import com.ipartek.formacion.spring.springmvc.repositorios.FacturaRepository;
 import com.ipartek.formacion.spring.springmvc.repositorios.UsuarioRepository;
@@ -39,7 +40,11 @@ public class SpringmvcApplication implements CommandLineRunner { // implements C
 		System.out.println(factura.getCliente());
 		System.out.println(factura.getCliente().getUsuario());
 		System.out.println(factura.getCliente().getUsuario().getRol());
-		System.out.println(factura.getProductos());
+		
+		for(FacturaLinea l: factura.getLineas()) {
+			System.out.println(l.getProducto());
+			System.out.println(l.getCantidad());
+		}
 		
 		Usuario porNick = repoUsuario.findByNick("javier");
 		

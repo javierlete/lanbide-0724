@@ -28,14 +28,18 @@
 				<th>Nombre</th>
 				<th>Precio</th>
 				<th>Fecha de caducidad</th>
+				<th>Cantidad</th>
+				<th>Total</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="p: ${factura.productos}">
-				<th th:text="${p.id}">Id</th>
-				<td th:text="${p.nombre}">Nombre</td>
-				<td th:text="${p.precio}">Precio</td>
-				<td th:text="${p.fechaCaducidad}">Fecha de caducidad</td>
+			<tr th:each="l: ${factura.lineas}">
+				<th th:text="${l.producto.id}">Id</th>
+				<td th:text="${l.producto.nombre}">Nombre</td>
+				<td th:text="${l.producto.precio}">Precio</td>
+				<td th:text="${l.producto.fechaCaducidad}">Fecha de caducidad</td>
+				<td th:text="${l.cantidad}">Cantidad</td>
+				<td th:text="${l.total}">Total</td>
 			</tr>
 		</tbody>
 		<tfoot>
@@ -44,6 +48,24 @@
 				<td></td>
 				<td></td>
 				<td></td>
+				<td>Total:</td>
+				<td th:text="${factura.total}"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>IVA (0,21):</td>
+				<td th:text="${factura.iva}"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Total con IVA:</td>
+				<td th:text="${factura.totalConIva}"></td>
 			</tr>
 		</tfoot>
 		

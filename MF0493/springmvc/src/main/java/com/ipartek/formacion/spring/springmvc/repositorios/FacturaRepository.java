@@ -12,6 +12,6 @@ public interface FacturaRepository extends CrudRepository<Factura, Long>{
 	@Query("select f from Factura f left join fetch f.cliente c left join fetch c.usuario u left join fetch u.rol r")
 	Set<Factura> findAll();
 
-	@Query("select f from Factura f left join fetch f.cliente c left join fetch f.productos p left join fetch c.usuario u left join fetch u.rol r where f.id = :id")
+	@Query("select f from Factura f left join fetch f.cliente c left join fetch f.lineas l left join fetch l.producto p left join fetch c.usuario u left join fetch u.rol r where f.id = :id")
 	Optional<Factura> findById(Long id);
 }
