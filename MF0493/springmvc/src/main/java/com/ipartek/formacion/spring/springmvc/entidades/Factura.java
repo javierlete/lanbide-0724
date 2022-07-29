@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,9 +24,14 @@ public class Factura {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull
 	private String numero;
+	
+	@NotNull
 	private LocalDate fecha;
 	
+	@NotNull
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToOne
