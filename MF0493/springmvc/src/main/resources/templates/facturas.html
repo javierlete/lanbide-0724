@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form th:action="@{/logout}" method="post">
+		<button>Logout</button>
+	</form>
+
+	<pre th:text="${error}"></pre>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Número</th>
+				<th>Fecha</th>
+				<th>Cliente</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="f: ${facturas}">
+				<th th:text="${f.id}">Id</th>
+				<td th:text="${f.numero}">Número</td>
+				<td th:text="${f.fecha}">Fecha</td>
+				<td th:text="${f.cliente.usuario.nombre}">Cliente</td>
+				<td>
+					<a th:href="@{/admin/facturas/} + ${f.id}">Ver factura</a>
+				</td>
+			</tr>
+		</tbody>
+		
+	</table>
+</body>
+</html>
