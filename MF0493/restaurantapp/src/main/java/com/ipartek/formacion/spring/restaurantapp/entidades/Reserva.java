@@ -50,10 +50,12 @@ public class Reserva {
 	@Size(max = 9)
 	private String telefono;
 	
+	@NotNull
 	@DateTimeFormat(iso = ISO.DATE_TIME) // yyyy-MM-ddTHH:mm:ss
 	// @Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime fechaHora;
 	
+	@NotNull
 	@Min(value = 1)
 	@Max(value = 10)
 	private Integer numeroPersonas;
