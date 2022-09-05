@@ -30,10 +30,10 @@ class ReservaRepositoryTest {
 	void antesDeCadaMetodo() {
 		registros = new ArrayList<>();
 		
-		registros.add(new Object[] {1L, "Javi", null, "123456789", LocalDateTime.now(), 2, null});
-		registros.add(new Object[] {2L, "Pepe", null, "987654321", LocalDateTime.now(), 3, null});
-		registros.add(new Object[] {3L, "Juan", null, "147384729", LocalDateTime.now(), 5, null});
-		registros.add(new Object[] {4L, "Pedro", null, "184637463", LocalDateTime.now(), 2, null});
+		registros.add(new Object[] {1L, "Javi", null, "123456789", LocalDateTime.of(2011, 1, 1, 1, 1), 2, null});
+		registros.add(new Object[] {2L, "Pepe", null, "987654321", LocalDateTime.of(2012, 2, 2, 2, 2), 3, null});
+		registros.add(new Object[] {3L, "Juan", null, "147384729", LocalDateTime.of(2013, 3, 3, 3, 3), 5, null});
+		registros.add(new Object[] {4L, "Pedro", null, "184637463", LocalDateTime.of(2014, 4, 4, 4, 4), 2, null});
 		
 		jdbc.execute("TRUNCATE reservas");
 		jdbc.batchUpdate("INSERT INTO reservas (id, nombre, email, telefono, fecha_hora, numero_personas, comentarios) VALUES (?,?,?,?,?,?,?)", registros);
