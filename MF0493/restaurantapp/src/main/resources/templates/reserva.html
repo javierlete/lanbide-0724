@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Listado de reservas</title>
+</head>
+<body>
+<h1>Formulario de reservas</h1>
+
+<form th:action="@{/reserva/crear}" method="post" th:object="${reserva}">
+	<input th:field="*{id}" readonly>
+	<p th:errors="*{id}">Error id</p>
+	<input th:field="*{fechaHora}" type="datetime-local">
+	<p th:errors="*{fechaHora}">Error fechaHora</p>
+	<input th:field="*{nombre}">
+	<p th:errors="*{nombre}">Error nombre</p>
+	<input th:field="*{telefono}" type="tel">
+	<p th:errors="*{telefono}">Error telefono</p>
+	<input th:field="*{numeroPersonas}" type="number">
+	<p th:errors="*{numeroPersonas}">Error numeroPersonas</p>
+	<button>Aceptar</button>
+</form>
+
+</body>
+</html>
