@@ -1,5 +1,7 @@
 package com.ipartek.formacion.spring.restaurantapp.servicios;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,16 @@ public class ReservaServiceImpl implements ReservaService {
 		
 		return nueva;
 	}
+
+	@Override
+	public Optional<Reserva> buscarPorId(Long id) {
+		return repo.findById(id);
+	}
+	
+//	@Override
+//	public Reserva buscarPorId(Long id) {
+//		return repo.findById(id).orElseThrow(
+//				() -> new ServiciosException("No se ha encontrado el elemento"));
+//	}
 
 }

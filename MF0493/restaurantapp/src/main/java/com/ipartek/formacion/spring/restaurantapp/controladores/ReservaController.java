@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -52,5 +53,11 @@ public class ReservaController {
 		servicio.crear(reserva);
 		
 		return "redirect:/reserva/listar";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String editar(@PathVariable Long id, Model modelo) {
+		modelo.addAttribute("reserva", servicio.buscarPorId(id).get()); //orElseThrow(() -> new NoSuchElementException("No se ha encontrado el elemento"))); //orElse(new Reserva()));
+		return "reserva";
 	}
 }

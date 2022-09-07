@@ -15,6 +15,7 @@
 			<th>Nombre</th>
 			<th>Teléfono</th>
 			<th>Número de personas</th>
+			<th>OPCIONES</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,6 +25,9 @@
 			<td th:text="${reserva.nombre}">Nombre</td>
 			<td th:text="${reserva.telefono}">Teléfono</td>
 			<td th:text="${reserva.numeroPersonas}">Número de personas</td>
+			<td>
+				<a th:href="@{/reserva/editar} + '/' + ${reserva.id}">Editar</a>
+			</td>
 		</tr>
 	</tbody>
 </table>
