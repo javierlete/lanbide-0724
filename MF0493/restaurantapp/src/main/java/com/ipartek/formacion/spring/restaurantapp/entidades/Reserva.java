@@ -17,8 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,7 +50,7 @@ public class Reserva {
 	private String telefono;
 	
 	@NotNull
-	@DateTimeFormat(iso = ISO.DATE_TIME) // yyyy-MM-ddTHH:mm:ss
+	// Pasado al fichero de configuración global: @DateTimeFormat(iso = ISO.DATE_TIME) // yyyy-MM-ddTHH:mm:ss
 	// @Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime fechaHora;
 	
