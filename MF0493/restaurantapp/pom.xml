@@ -83,6 +83,7 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
 		<!-- http://localhost:8080/swagger-ui/index.html -->
+		<!-- http://localhost:8080/v3/api-docs -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
