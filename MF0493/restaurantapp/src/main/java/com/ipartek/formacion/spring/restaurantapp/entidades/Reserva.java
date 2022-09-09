@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -30,6 +31,18 @@ public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	public Reserva(Long id, @NotNull @NotBlank @Size(min = 3, max = 50) String nombre,
+			@Email @Size(max = 50) String email,
+			@NotNull @NotBlank @Pattern(regexp = "^\\d{9}$") @Size(max = 9) String telefono,
+			@NotNull LocalDateTime fechaHora, @NotNull @Min(1) @Max(10) Integer numeroPersonas,
+			@Size(max = 2000) String comentarios) {
+		this(id, null, nombre, email, telefono, fechaHora, numeroPersonas, comentarios);
+	}
+
+	@NotNull
+	@ManyToOne
+	private Usuario usuario;
 	
 	@NotNull
 	@NotBlank
