@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+
+	<form th:action="@{/admin/alta}" th:object="${inmueble}" method="post">
+		<!--/* th:object define el objeto de contexto sobre el que se buscarán los th:field="*{...}" */-->
+		<label>Descripción</label>
+		<input th:field="*{descripcion}"></input>
+		<label>Dirección</label>
+		<input th:field="*{direccion}"></input>
+		<label>Precio</label>
+		<input th:field="*{precio}"></input>
+		<label>Tipo</label> 
+		<select th:field="*{tipo}">
+			<option value="Alquiler">En alquiler</option>
+			<option value="Venta">En venta</option>
+		</select>
+		
+		<button>Alta</button>
+	</form>
+</body>
+</html>

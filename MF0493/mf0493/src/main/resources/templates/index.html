@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<form>
+		<input type="text" name="texto" placeholder="Nombre o dirección" />
+		<button>Buscar</button>
+	</form>
+	
+	<form>
+		<input type="number" name="min" placeholder="Precio mínimo" />
+		<input type="number" name="max" placeholder="Precio máximo" />
+		
+		<button>Buscar</button>
+	</form>
+	
+	<form>
+		<select name="tipo">
+			<option value="Alquiler">En alquiler</option>
+			<option value="Venta">En venta</option>
+			<option value="">Todos</option>
+		</select>
+		
+		<button>Buscar</button>
+	</form>
+	
+	<ul>
+		<li th:each="i: ${listaInmuebles}">
+			<p th:text="${i.descripcion}"></p>
+			<p th:text="${i.direccion}"></p>
+			<p th:text="${i.precio}"></p>
+			<p th:text="${i.tipo}"></p>
+		</li>
+	</ul>
+</body>
+</html>

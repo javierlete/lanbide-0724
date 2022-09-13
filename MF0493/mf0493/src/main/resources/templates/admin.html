@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Descripción</th>
+				<th>Dirección</th>
+				<th>Precio</th>
+				<th>Tipo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="i: ${listaInmueblesAdmin}">
+				<th th:text="${i.id}"></th>
+				<td th:text="${i.descripcion}"></td>
+				<td th:text="${i.direccion}"></td>
+				<td th:text="${i.precio}"></td>
+				<td th:text="${i.tipo}"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a th:href="@{/admin/alta}">Alta</a></td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
