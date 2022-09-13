@@ -35,4 +35,10 @@ public class InmuebleController {
 		modelo.addAttribute("listaInmuebles", inmuebles);
 		return "index";
 	}
+	
+	@GetMapping("/buscador")
+	public String buscador(Model modelo, Tipo tipo, BigDecimal min, BigDecimal max, String texto) {
+		modelo.addAttribute("listaInmuebles", servicio.buscador(min, max, tipo, texto));
+		return "index";
+	}
 }

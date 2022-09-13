@@ -33,4 +33,9 @@ public class InmuebleServiceImpl implements InmuebleService {
 		return repo.findByDescripcionContainingOrDireccionContaining(texto, texto);
 	}
 
+	@Override
+	public Iterable<Inmueble> buscador(BigDecimal min, BigDecimal max, Tipo tipo, String texto) {
+		return repo.findByMinMaxTipoNombreDireccion(min, max, tipo, texto);
+	}
+
 }

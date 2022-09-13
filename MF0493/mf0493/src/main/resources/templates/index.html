@@ -27,6 +27,20 @@
 		<button>Buscar</button>
 	</form>
 	
+	<form th:action="@{/buscador}">
+		<input type="text" name="texto" placeholder="Nombre o dirección" />
+		<input type="number" name="min" placeholder="Precio mínimo" />
+		<input type="number" name="max" placeholder="Precio máximo" />
+		
+		<select name="tipo">
+			<option value="">Todos</option>
+			<option value="Alquiler">En alquiler</option>
+			<option value="Venta">En venta</option>
+		</select>
+		
+		<button>Buscar</button>
+	</form>
+	
 	<ul>
 		<li th:each="i: ${listaInmuebles}">
 			<p th:text="${i.descripcion}"></p>

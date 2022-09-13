@@ -9,4 +9,6 @@ public interface InmuebleService {
 	Iterable<Inmueble> rangoDePrecio(BigDecimal min, BigDecimal max);
 	Iterable<Inmueble> alquilerVentaOTodas(Tipo tipo);
 	Iterable<Inmueble> nombreODireccion(String texto);
+	
+	Iterable<Inmueble> buscador(BigDecimal min, BigDecimal max, Tipo tipo, String texto);
 }
