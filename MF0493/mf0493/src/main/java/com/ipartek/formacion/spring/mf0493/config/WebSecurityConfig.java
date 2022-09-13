@@ -39,7 +39,13 @@ public class WebSecurityConfig {
 				.and()
 			.logout()
 				.permitAll();
-	        return http.build();
+        
+        http        	
+	        // Necesitamos que el Rest Controller no reciba CSRF a diferencia de los formularios de backend
+	    	// Si estuviera activado, en la petición post se esperaría el envío del CSRF recibido del formulario
+	    	.csrf().ignoringAntMatchers("/api/**");
+        
+        return http.build();
     }
 
     // AUTENTICACIÓN
